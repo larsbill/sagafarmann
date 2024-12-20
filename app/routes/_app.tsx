@@ -1,4 +1,4 @@
-import { SiFacebook, SiInstagram, SiYoutube } from "@icons-pack/react-simple-icons";
+import { SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
 import { Link, Outlet, } from "@remix-run/react";
 import Footer from "~/components/nav/footer";
 import Header from "~/components/nav/header";

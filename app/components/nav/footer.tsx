@@ -1,4 +1,4 @@
-import { SiFacebook, SiInstagram, SiYoutube } from "@icons-pack/react-simple-icons";
+import { SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
 import { Link } from "@remix-run/react";
 import { Mail, MapPin } from "lucide-react";
 import { Button } from "../ui/button";
@@ -57,14 +57,14 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex justify-center gap-4 my-8">
+        <div className="flex justify-center gap-4 my-4">
           <Link
             to="https://www.facebook.com/VikingskipetSagaFarmann"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition duration-300"
           >
-            <SiFacebook />
+            <SiFacebook className="w-6 h-6" />
           </Link>
           <Link
             to="https://www.instagram.com/original_vikings_of_norway/"
@@ -72,7 +72,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition duration-300"
           >
-            <SiInstagram />
+            <SiInstagram className="w-6 h-6" />
           </Link>
           <Link
             to="https://www.youtube.com/channel/UCaPUAvRBw0i5ET79TMh2_MQ"
@@ -80,10 +80,10 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition duration-300"
           >
-            <SiYoutube />
+            <SiYoutube className="w-6 h-6" />
           </Link>
         </div>
-        <div className="text-center mt-8">
+        <div className="text-center mt-2">
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} Saga Farmann. All rights reserved.
           </p>

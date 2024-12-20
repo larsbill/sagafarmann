@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
 import { Heart, MessageCircle, Send } from "lucide-react";
-import { SiFacebook, SiInstagram, SiYoutube } from "@icons-pack/react-simple-icons";
+import { SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
 
 interface SosialMediaCardProps {
   title: string;

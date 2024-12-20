@@ -3,7 +3,7 @@ import { Button } from "~/components/ui/button";
 import { Menu } from "lucide-react";
 import { Link } from "@remix-run/react";
 import { links } from "~/lib/links";
-import { SiFacebook, SiInstagram, SiYoutube } from "@icons-pack/react-simple-icons";
+import { SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
 
 export default function Header() {
   return (
