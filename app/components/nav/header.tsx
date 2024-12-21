@@ -10,8 +10,7 @@ export default function Header() {
     <header className="fixed left-0 right-0 top-0 h-14 bg-transparent flex justify-center items-center backdrop-blur-sm z-40">
       <div className="container px-4 lg:px-6 flex items-center">
         <Link className="flex items-center justify-center" to="/" prefetch="render">
-          <img src="/assets/images/logo/logo_single_256x256.png" alt="Saga Farmann logo" height={38} width={38} />
-          <span className="ml-2 text-2xl font-bold font-sans text-white">Saga Farmann</span>
+          <img src="/assets/images/logo/logo_full_white.png" alt="Saga Farmann logo" className="w-full h-12" />
         </Link>
         <nav className="hidden sm:flex ml-auto gap-4 sm:gap-6 items-center text-white">
           {links.map((link, idx) =>
