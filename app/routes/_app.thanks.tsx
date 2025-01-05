@@ -13,10 +13,10 @@ export default function Thanks() {
   return (
     <div className="h-screen flex flex-col justify-center items-center text-center gap-8 p-6">
       <h1 className="text-6xl font-bold text-primary">Thank You!</h1>
-      <p className="text-lg">
-        We appreciate your support for Saga Farmann. <br />
-        <strong>Follow us</strong> on sosial media to up to date!
+      <p className="text-lg text-center max-w-lg">
+        We appreciate your intrest in joining the Saga Farmann crew. Shortly you will be contacted for further information. <br />
       </p>
+      <p><strong>Follow us</strong> on sosial media to stay up to date!</p>
       <div className="flex flex-row items-center justify-center gap-8 group">
         <Link
           to="https://www.facebook.com/VikingskipetSagaFarmann"
