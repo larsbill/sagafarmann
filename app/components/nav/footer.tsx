@@ -21,7 +21,7 @@ export default function Footer() {
               aria-label="Donate to Saga Farmann"
               className="mt-4"
             >
-              <Button className="text-lg font-normal w-32 h-9">
+              <Button className="w-32 h-9">
                 Donate
               </Button>
             </Link>
