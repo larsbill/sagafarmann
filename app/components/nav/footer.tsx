@@ -28,19 +28,26 @@ export default function Footer() {
           </div>
           <div className="flex-1 flex flex-col items-start">
             <h3 className="text-lg font-semibold mb-2">Links</h3>
-            <nav className="flex flex-col space-y-2">
-              <Link to="/sponsors" className="text-sm hover:underline">
-                Sponsors
-              </Link>
-              <Link to="/about" className="text-sm hover:underline">
-                About Us
-              </Link>
-              <Link to="/crew" className="text-sm hover:underline">
-                Info
-              </Link>
-              <Link to="/join" className="text-sm hover:underline">
-                Join Us
-              </Link>
+            <nav className="flex flex-row gap-4">
+              <div className="flex flex-col gap-2">
+                <Link to="/sponsors" className="text-sm text-muted-foreground hover:text-foreground hover:underline transition-colors duration-200">
+                  Sponsors
+                </Link>
+                <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground hover:underline transition-colors duration-200">
+                  About Us
+                </Link>
+                <Link to="/crew" className="text-sm text-muted-foreground hover:text-foreground hover:underline transition-colors duration-200">
+                  Info
+                </Link>
+                <Link to="/join" className="text-sm text-muted-foreground hover:text-foreground hover:underline transition-colors duration-200">
+                  Join Us
+                </Link>
+              </div>
+              <div className="flex flex-col gap-2">
+                <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground hover:underline transition-colors duration-200">
+                  Privacy Policy
+                </Link>
+              </div>
             </nav>
           </div>
           <div className="flex-1">

@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/react";
+import PageHeader from "~/components/nav/PageHeader";
 
 export const meta: MetaFunction = () => {
   return [
@@ -45,8 +46,8 @@ export default function About() {
   ];
 
   return (
-    <div className="container mx-auto p-6 mt-12">
-      <h1 className="text-4xl font-bold text-center mb-10">About Us</h1>
+    <div className="container mx-auto p-6">
+      <PageHeader title="About Us" description="Saga Farmann is an archaeological reconstruction of the Klåstadship, referred to as Norway's fourth Viking ship." />
       <div className="grid gap-10">
         {teamInfo.map((info) => (
           <div
