@@ -24,10 +24,24 @@ export async function loader() {
     Authorization: `Bearer ${process.env.API_TOKEN}`,
   };
 
-  const tripsPromise = fetch(`${API_URL}/trips`, { headers }).then((res) => res.json() as Promise<Trip[]>);
-  const stagesPromise = fetch(`${API_URL}/stages`, { headers }).then((res) => res.json() as Promise<Stage[]>);
-  const waypointsPromise = fetch(`${API_URL}/waypoints`, { headers }).then((res) => res.json() as Promise<Waypoint[]>);
-  const sosialmediaPromise = fetch(`${API_URL}/sosialmedia?count=3`, { headers }).then((res) => res.json() as Promise<SosialMedia[]>);
+  async function fetchData<T>(url: string, defaultValue: T): Promise<T> {
+    try {
+      const response = await fetch(url, { headers });
+      if (!response.ok) {
+        console.error(`Failed to fetch ${url}:`, response.statusText);
+        return defaultValue;
+      }
+      return await response.json();
+    } catch (error) {
+      console.error(`Error fetching ${url}:`, error);
+      return defaultValue;
+    }
+  }
+
+  const tripsPromise = fetchData<Trip[]>(`${API_URL}/trips`, []);
+  const stagesPromise = fetchData<Stage[]>(`${API_URL}/stages`, []);
+  const waypointsPromise = fetchData<Waypoint[]>(`${API_URL}/waypoints`, []);
+  const sosialmediaPromise = fetchData<SosialMedia[]>(`${API_URL}/sosialmedia?count=3`, []);
 
   return { tripsPromise, stagesPromise, waypointsPromise, sosialmediaPromise }
 }
@@ -85,7 +99,7 @@ export default function Index() {
                 <SosialMediaCardSkeleton key={idx} />
               ))}
             >
-              <Await resolve={sosialmediaPromise}>
+              <Await resolve={sosialmediaPromise} errorElement={<p>Something went wrong</p>}>
                 {(sosialmedia) =>
                   sosialmedia.map((post) => (
                     <SosialMediaCard
@@ -112,7 +126,7 @@ export default function Index() {
               </div>
               <div className="w-full h-1/3 md:w-min md:h-[75vh]">
                 <Suspense fallback={<TripsMapSidebarSkeleton />}>
-                  <Await resolve={Promise.all([tripsPromise, stagesPromise, waypointsPromise])}>
+                  <Await resolve={Promise.all([tripsPromise, stagesPromise, waypointsPromise])} errorElement={<p>Something went wrong</p>}>
                     {([trips, stages, waypoints]) => (
                       <TripsMapSidebar trips={trips} stages={stages} waypoints={waypoints} />
                     )}

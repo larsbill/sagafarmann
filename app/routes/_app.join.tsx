@@ -24,7 +24,7 @@ import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
 import { useEffect, useState } from "react";
 import { useActionData, useLoaderData } from "@remix-run/react";
-import { TriangleAlert } from "lucide-react";
+import { Dot, TriangleAlert } from "lucide-react";
 import { ActionFunctionArgs } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
@@ -51,7 +51,7 @@ interface Turnstile {
 }
 
 export const loader = async () => {
-  return { siteKey: process.env.TURNSTILE_SITE_KEY}
+  return { siteKey: process.env.TURNSTILE_SITE_KEY }
 }
 
 export const action = async ({ request }: ActionFunctionArgs) => {
@@ -133,6 +133,7 @@ export default function JoinUs() {
       form.submit();
     }
   }
+
 
   return (
     <div className="relative flex items-center justify-center min-h-screen p-4 mt-12">
@@ -223,6 +224,7 @@ export default function JoinUs() {
                         id="gender-input"
                         name="gender"
                         className="sr-only"
+                        autoComplete="off"
                         value={field.value || ""}
                       />
                       <FormMessage />
@@ -242,6 +244,7 @@ export default function JoinUs() {
                           placeholder="Why do you want to join?"
                           {...field}
                           rows={5}
+                          autoComplete="off"
                         />
                       </FormControl>
                       <FormMessage />
@@ -249,7 +252,7 @@ export default function JoinUs() {
                   )}
                 />
 
-                {isClient && <Turnstile sitekey={siteKey as string} size="flexible" theme="dark" appearance="always" className="w-full" />}
+                {isClient && !!siteKey && <Turnstile sitekey={siteKey as string} size="flexible" theme="dark" appearance="always" className="w-full" />}
                 
                 {message && (
                   <div className="flex flex-row items-center gap-2 border border-destructive p-2 rounded-sm">
@@ -263,6 +266,11 @@ export default function JoinUs() {
                 </Button>
               </form>
             </Form>
+            <div className="flex items-center justify-end mt-2">
+              <a className="text-[10px] text-muted-foreground underline" href="/privacy">Privacy Policy</a>
+              <Dot className="w-5 h-5 text-muted-foreground" />
+              <a className="text-[10px] text-muted-foreground underline" href="/about">About Us      </a>
+            </div>
           </CardContent>
         </Card>
       </div>

@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/react";
 import { Link } from "@remix-run/react";
+import PageHeader from "~/components/nav/PageHeader";
 
 export const meta: MetaFunction = () => {
   return [
@@ -8,7 +9,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function Index() {
+export default function Sponsors() {
   const sponsors = [
     {
       id: 1,
@@ -62,9 +63,9 @@ export default function Index() {
   ];
 
   return (
-    <div className="container min-h-screen mx-auto py-12 px-6 mt-12">
-      <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-3xl font-bold text-center mb-8">Saga Farmann Sponsors</h1>
+    <div className="container mx-auto p-6">
+      <PageHeader title="Saga Farmann Sponsors" />
+      <div className="px-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {sponsors.map((sponsor) => (
             <Link
@@ -80,7 +81,7 @@ export default function Index() {
                 <img
                   src={sponsor.image}
                   alt={sponsor.name}
-                  className="w-full h-48 bg-gray-200 object-contain p-4"
+                  className="w-full h-48 bg-gray-200 object-contain p-8"
                 />
                 <div className="p-4">
                   <h2 className="text-xl font-bold mb-2">{sponsor.name}</h2>

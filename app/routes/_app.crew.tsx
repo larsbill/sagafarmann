@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/react";
 import { Link } from "@remix-run/react";
+import PageHeader from "~/components/nav/PageHeader";
 
 export const meta: MetaFunction = () => {
   return [
@@ -57,19 +58,17 @@ const roles = [
 
 export default function Crew() {
   return (
-    <div className="container min-h-screen mx-auto py-12 px-6 mt-12">
-      <div className="py-8 mb-4 text-center">
-        <h1 className="text-4xl font-bold">Saga Farmann Crew Information</h1>
-      </div>
+    <div className="container mx-auto p-6">
+      <PageHeader title="Crew Information" />
       <div className="flex flex-col gap-12">
         <div className="flex flex-col gap-6">
-          <h2 className="text-xl">General Information</h2>
+          <h2 className="text-3xl font-semibold">General Information</h2>
           {information.map((info, index) => (
             <ListCard key={index} name={info.name} description={info.description} downloadUrl={info.downloadUrl} />
           ))}
         </div>
         <div className="flex flex-col gap-6">
-          <h2 className="text-xl">Crew Roles</h2>
+          <h2 className="text-3xl font-semibold">Crew Roles</h2>
           {roles.map((role, index) => (
             <ListCard key={index} name={role.name} description={role.description} downloadUrl={role.downloadUrl} />
           ))}
