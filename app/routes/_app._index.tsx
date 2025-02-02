@@ -38,10 +38,10 @@ export async function loader() {
     }
   }
 
-  const tripsPromise = fetchData<Trip[]>(`${API_URL}/trips`, []);
-  const stagesPromise = fetchData<Stage[]>(`${API_URL}/stages`, []);
-  const waypointsPromise = fetchData<Waypoint[]>(`${API_URL}/waypoints`, []);
-  const sosialmediaPromise = fetchData<SosialMedia[]>(`${API_URL}/sosialmedia?count=3`, []);
+  const tripsPromise = fetchData<Trip[]>(`${API_URL}/cdn/trips`, []);
+  const stagesPromise = fetchData<Stage[]>(`${API_URL}/cdn/stages`, []);
+  const waypointsPromise = fetchData<Waypoint[]>(`${API_URL}/cdn/waypoints`, []);
+  const sosialmediaPromise = fetchData<SosialMedia[]>(`${API_URL}/cdn/sosialmedia?count=3`, []);
 
   return { tripsPromise, stagesPromise, waypointsPromise, sosialmediaPromise }
 }
@@ -49,7 +49,7 @@ export async function loader() {
 export default function Index() {
   const { tripsPromise, stagesPromise, waypointsPromise, sosialmediaPromise } = useLoaderData<typeof loader>();
 
-  
+
 
   const words = ["unforgettable", "amazing", "surreal", "memorable", "inspiring", "breathtaking"];
 
