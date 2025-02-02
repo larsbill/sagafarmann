@@ -266,10 +266,15 @@ export default function JoinUs() {
                 </Button>
               </form>
             </Form>
-            <div className="flex items-center justify-end mt-2">
-              <a className="text-[10px] text-muted-foreground underline" href="/privacy">Privacy Policy</a>
-              <Dot className="w-5 h-5 text-muted-foreground" />
-              <a className="text-[10px] text-muted-foreground underline" href="/about">About Us</a>
+            <div className="flex items-center justify-between mt-2">
+              <div>
+                <p className="text-[10px] text-muted-foreground">Please check your spam inbox for any reply mail!</p>
+              </div>
+              <div className="inline-flex flex-nowrap">
+                <a className="text-[10px] text-muted-foreground underline" href="/privacy">Privacy Policy</a>
+                <Dot className="w-5 h-5 text-muted-foreground" />
+                <a className="text-[10px] text-muted-foreground underline" href="/about">About Us</a>
+              </div>
             </div>
           </CardContent>
         </Card>

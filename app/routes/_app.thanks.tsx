@@ -46,6 +46,7 @@ export default function Thanks() {
       <a href="/">
         <Button size='lg'>Go back</Button>
       </a>
+      <p className="text-xs text-muted-foreground">Please check your spam inbox for any reply mail!</p>
     </div>
   );
 }
