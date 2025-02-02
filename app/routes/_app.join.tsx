@@ -78,10 +78,10 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
     if (!outcome.success) {
       console.log("Captcha failed")
-      return { message: "Captcha verification failed, please try again.",  status: 400 }
+      return { message: "Captcha verification failed, please try again.", status: 400 }
     }
 
-    const apiResponse = await fetch(`${process.env.API_URL}/join`, {
+    const apiResponse = await fetch(`${process.env.API_URL}/cdn/join`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -253,7 +253,7 @@ export default function JoinUs() {
                 />
 
                 {isClient && !!siteKey && <Turnstile sitekey={siteKey as string} size="flexible" theme="dark" appearance="always" className="w-full" />}
-                
+
                 {message && (
                   <div className="flex flex-row items-center gap-2 border border-destructive p-2 rounded-sm">
                     <TriangleAlert strokeWidth="2" className="w-4 h-4 text-destructive" />
@@ -269,7 +269,7 @@ export default function JoinUs() {
             <div className="flex items-center justify-end mt-2">
               <a className="text-[10px] text-muted-foreground underline" href="/privacy">Privacy Policy</a>
               <Dot className="w-5 h-5 text-muted-foreground" />
-              <a className="text-[10px] text-muted-foreground underline" href="/about">About Us      </a>
+              <a className="text-[10px] text-muted-foreground underline" href="/about">About Us</a>
             </div>
           </CardContent>
         </Card>
