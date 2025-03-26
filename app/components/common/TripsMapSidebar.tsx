@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Separator } from "../ui/separator";
 import { TextAnimation } from "~/components/common/TextAnimation";
-import { Stage, Trip, Waypoint } from "~/types";
+import { Live, Stage, Trip, Waypoint } from "~/types";
 import { useMap } from "~/context/MapContext";
 import { fromLonLat } from "ol/proj";
 
@@ -11,14 +11,22 @@ interface TripsMapSidebarProps {
   trips: Trip[];
   stages: Stage[];
   waypoints: Waypoint[];
+  live: Live | null;
 }
 
-export default function TripsMapSidebar({ trips, stages, waypoints }: TripsMapSidebarProps) {
-  const { map, addWaypoints, removeWaypoints } = useMap();
+export default function TripsMapSidebar({ trips, stages, waypoints, live }: TripsMapSidebarProps) {
+  const { map, addWaypoints, removeWaypoints, updateLivePos } = useMap();
 
   const [page, setPage] = useState<"trips" | "stages" | "info">("trips");
   const [selectedTrip, setSelectedTrip] = useState<Trip | null>(null);
   const [selectedStage, setSelectedStage] = useState<Stage | null>(null);
+
+  useEffect(() => {
+    if (live) {
+      console.log(live.latitude, live.longitude)
+      updateLivePos(live);
+    }
+  }, [live, updateLivePos])
 
   // Dynamically handle waypoints based on the current page and selection
   useEffect(() => {
@@ -34,7 +42,7 @@ export default function TripsMapSidebar({ trips, stages, waypoints }: TripsMapSi
               .filter((waypoint) => waypoint.stage_id === stage.id)
               .map((waypoint) => fromLonLat([waypoint.longitude, waypoint.latitude]))
           );
-  
+
         if (tripWaypoints.length > 0) {
           console.log(`Adding waypoints for trip: ${trip.name} (${trip.id})`);
           addWaypoints(tripWaypoints, trip.color);
@@ -42,7 +50,7 @@ export default function TripsMapSidebar({ trips, stages, waypoints }: TripsMapSi
           console.log(`No waypoints for trip: ${trip.name} (${trip.id})`);
         }
       });
-  
+
       // Fit map view to include all waypoints
       const allWaypoints = trips.flatMap((trip) => {
         return stages
@@ -53,7 +61,7 @@ export default function TripsMapSidebar({ trips, stages, waypoints }: TripsMapSi
               .map((waypoint) => fromLonLat([waypoint.longitude, waypoint.latitude]))
           );
       });
-  
+
       if (allWaypoints.length > 0) {
         const extent = allWaypoints.reduce(
           (extent, coord) => {
@@ -65,7 +73,7 @@ export default function TripsMapSidebar({ trips, stages, waypoints }: TripsMapSi
           },
           [Infinity, Infinity, -Infinity, -Infinity]
         );
-  
+
         map.current?.getView().fit(extent, { padding: [50, 50, 50, 50], duration: 500 });
       }
     } else if (page === "stages" && selectedTrip) {
@@ -142,9 +150,8 @@ export default function TripsMapSidebar({ trips, stages, waypoints }: TripsMapSi
       <div className="bg-secondary text-foreground flex items-center justify-between p-4 flex-none h-16">
         <div className="relative w-full flex items-center gap-2">
           <div
-            className={`absolute left-0 transition-all duration-500 ease-in-out ${
-              page !== "trips" ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
-            }`}
+            className={`absolute left-0 transition-all duration-500 ease-in-out ${page !== "trips" ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+              }`}
           >
             <Button
               variant="ghost"
@@ -156,9 +163,8 @@ export default function TripsMapSidebar({ trips, stages, waypoints }: TripsMapSi
             </Button>
           </div>
           <h1
-            className={`text-xl font-semibold transition-all duration-500 ease-in-out ${
-              page !== "trips" ? "ml-12" : "ml-2"
-            }`}
+            className={`text-xl font-semibold transition-all duration-500 ease-in-out ${page !== "trips" ? "ml-12" : "ml-2"
+              }`}
           >
             <TextAnimation>
               {page === "trips" ? "Select a Trip" : ""}
@@ -176,8 +182,8 @@ export default function TripsMapSidebar({ trips, stages, waypoints }: TripsMapSi
             page === "trips"
               ? "translateX(0%)"
               : page === "stages"
-              ? "translateX(-100%)"
-              : "translateX(-200%)",
+                ? "translateX(-100%)"
+                : "translateX(-200%)",
         }}
       >
         <div className="w-full flex-shrink-0 p-4 box-border">
