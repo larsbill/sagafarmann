@@ -4,10 +4,11 @@ import { fromLonLat } from 'ol/proj';
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
 import { Feature } from 'ol';
-import LineString from 'ol/geom/LineString';
 import Point from 'ol/geom/Point';
 import { Style, Stroke, Circle as CircleStyle, Fill } from 'ol/style';
 import { Coordinate } from 'ol/coordinate';
+import { Live } from '~/types';
+import { LineString } from 'ol/geom';
 
 interface MapContextType {
   map: React.MutableRefObject<Map | null>;
@@ -16,6 +17,7 @@ interface MapContextType {
   flyTo: (coords: [number, number], zoom?: number) => void;
   addWaypoints: (waypoints: Coordinate[], color: string) => void;
   removeWaypoints: () => void;
+  updateLivePos: (live: Live) => void;
 }
 
 const MapContext = createContext<MapContextType | undefined>(undefined);
@@ -23,6 +25,9 @@ const MapContext = createContext<MapContextType | undefined>(undefined);
 export const MapProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const map = useRef<Map | null>(null);
   const waypointLayerRef = useRef<VectorLayer | null>(null);
+  // New refs for live layer and its feature
+  const liveLayerRef = useRef<VectorLayer | null>(null);
+  const liveFeatureRef = useRef<Feature | null>(null);
 
   const setCenter = (coords: [number, number]) => {
     map.current?.getView().setCenter(fromLonLat(coords));
@@ -46,11 +51,9 @@ export const MapProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const addWaypoints = (waypoints: Coordinate[], color: string) => {
     if (!map.current) return;
-  
-    // Use a shared vector source to allow multiple trips' waypoints
+
     let vectorSource: VectorSource;
-  
-    // Check if the layer already exists; if not, create a new one
+
     if (!waypointLayerRef.current) {
       vectorSource = new VectorSource();
       const waypointLayer = new VectorLayer({
@@ -58,19 +61,17 @@ export const MapProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         updateWhileAnimating: true,
         updateWhileInteracting: true,
       });
-  
       map.current.addLayer(waypointLayer);
       waypointLayerRef.current = waypointLayer;
     } else {
       vectorSource = waypointLayerRef.current.getSource() as VectorSource;
     }
-  
-    // Add features based on the number of waypoints
+
     if (waypoints.length === 1) {
       const pointFeature = new Feature({
         geometry: new Point(waypoints[0]),
       });
-  
+
       const pointStyle = new Style({
         image: new CircleStyle({
           radius: 6,
@@ -78,28 +79,26 @@ export const MapProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           stroke: new Stroke({ color: '#FFFFFF', width: 2 }),
         }),
       });
-  
+
       pointFeature.setStyle(pointStyle);
       vectorSource.addFeature(pointFeature);
     } else if (waypoints.length > 1) {
-      const lineString = new LineString(waypoints);
-  
+      // Assuming you want a line for multiple waypoints
       const lineFeature = new Feature({
-        geometry: lineString,
+        geometry: new LineString(waypoints),
       });
-  
+
       const lineStyle = new Style({
         stroke: new Stroke({
           color: color,
           width: 2,
         }),
       });
-  
+
       lineFeature.setStyle(lineStyle);
       vectorSource.addFeature(lineFeature);
     }
   };
-  
 
   const removeWaypoints = () => {
     if (map.current && waypointLayerRef.current) {
@@ -108,9 +107,53 @@ export const MapProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   };
 
+  const updateLivePos = (live: Live) => {
+    if (!map.current) return;
+
+    // Create the live layer if it doesn't exist yet
+    if (!liveLayerRef.current) {
+      const liveSource = new VectorSource();
+      const liveLayer = new VectorLayer({
+        source: liveSource,
+        updateWhileAnimating: true,
+        updateWhileInteracting: true,
+      });
+      liveLayer.setZIndex(1000);
+      map.current.addLayer(liveLayer);
+      liveLayerRef.current = liveLayer;
+    }
+    const liveSource = liveLayerRef.current.getSource() as VectorSource;
+    // Transform the live coordinates (pass as [longitude, latitude])
+    const transformedCoord = fromLonLat([live.longitude, live.latitude]);
+
+    if (!liveFeatureRef.current) {
+      // Create and add the live feature once
+      const liveFeature = new Feature({
+        geometry: new Point(transformedCoord),
+      });
+
+      const liveStyle = new Style({
+        image: new CircleStyle({
+          radius: 5,
+          fill: new Fill({ color: '#c41c2d' }),
+          stroke: new Stroke({
+            color: '#1e2a2e',
+            width: 2,
+          }),
+        }),
+      });
+
+      liveFeature.setStyle(liveStyle);
+      liveSource.addFeature(liveFeature);
+      liveFeatureRef.current = liveFeature;
+    } else {
+      liveFeatureRef.current.setGeometry(new Point(transformedCoord));
+    }
+  };
+
   return (
     <MapContext.Provider
-      value={{ map, setCenter, setZoom, flyTo, addWaypoints, removeWaypoints }}
+      value={{ map, setCenter, setZoom, flyTo, addWaypoints, removeWaypoints, updateLivePos }}
     >
       {children}
     </MapContext.Provider>

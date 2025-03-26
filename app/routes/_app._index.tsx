@@ -8,7 +8,7 @@ import TripsMapSidebar, { TripsMapSidebarSkeleton } from "~/components/common/Tr
 import TripsMap from "~/components/map/TripsMap";
 import { Button } from "~/components/ui/button";
 import { MapProvider } from "~/context/MapContext";
-import { SosialMedia, Stage, Trip, Waypoint } from "~/types";
+import { Live, SosialMedia, Stage, Trip, Waypoint } from "~/types";
 
 export const meta: MetaFunction = () => {
   return [
@@ -41,13 +41,14 @@ export async function loader() {
   const tripsPromise = fetchData<Trip[]>(`${API_URL}/cdn/trips`, []);
   const stagesPromise = fetchData<Stage[]>(`${API_URL}/cdn/stages`, []);
   const waypointsPromise = fetchData<Waypoint[]>(`${API_URL}/cdn/waypoints`, []);
+  const livePromise = fetchData<Live | null>(`${API_URL}/live/latest`, null);
   const sosialmediaPromise = fetchData<SosialMedia[]>(`${API_URL}/cdn/sosialmedia?count=3`, []);
 
-  return { tripsPromise, stagesPromise, waypointsPromise, sosialmediaPromise }
+  return { tripsPromise, stagesPromise, waypointsPromise, livePromise, sosialmediaPromise }
 }
 
 export default function Index() {
-  const { tripsPromise, stagesPromise, waypointsPromise, sosialmediaPromise } = useLoaderData<typeof loader>();
+  const { tripsPromise, stagesPromise, waypointsPromise, livePromise, sosialmediaPromise } = useLoaderData<typeof loader>();
 
 
 
@@ -126,9 +127,9 @@ export default function Index() {
               </div>
               <div className="w-full h-1/3 md:w-min md:h-[75vh]">
                 <Suspense fallback={<TripsMapSidebarSkeleton />}>
-                  <Await resolve={Promise.all([tripsPromise, stagesPromise, waypointsPromise])} errorElement={<p>Something went wrong</p>}>
-                    {([trips, stages, waypoints]) => (
-                      <TripsMapSidebar trips={trips} stages={stages} waypoints={waypoints} />
+                  <Await resolve={Promise.all([tripsPromise, stagesPromise, waypointsPromise, livePromise])} errorElement={<p>Something went wrong</p>}>
+                    {([trips, stages, waypoints, live]) => (
+                      <TripsMapSidebar trips={trips} stages={stages} waypoints={waypoints} live={live} />
                     )}
                   </Await>
                 </Suspense>

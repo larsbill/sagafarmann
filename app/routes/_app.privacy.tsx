@@ -97,7 +97,7 @@ export default function Privacy() {
               rel="noopener noreferrer"
               className="text-primary underline"
             >
-              Cloudflare's Privacy Policy
+              Cloudflare&apos;s Privacy Policy
             </a>{" "}
             for more details.
           </p>
@@ -130,7 +130,7 @@ export default function Privacy() {
             </li>
             <li>
               If the trip is full, your data will be stored for the{" "}
-              <strong>next year's trip</strong> and deleted after that.
+              <strong>next year&apos;s trip</strong> and deleted after that.
             </li>
             <li>
               If you withdraw your request or membership, your data will be
