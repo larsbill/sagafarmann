@@ -41,7 +41,7 @@ export async function loader() {
   const tripsPromise = fetchData<Trip[]>(`${API_URL}/cdn/trips`, []);
   const stagesPromise = fetchData<Stage[]>(`${API_URL}/cdn/stages`, []);
   const waypointsPromise = fetchData<Waypoint[]>(`${API_URL}/cdn/waypoints`, []);
-  const livePromise = fetchData<Live | null>(`${API_URL}/live/latest`, null);
+  const livePromise = fetchData<Live | null>(`${API_URL}/cdn/live/latest`, null);
   const sosialmediaPromise = fetchData<SosialMedia[]>(`${API_URL}/cdn/sosialmedia?count=3`, []);
 
   return { tripsPromise, stagesPromise, waypointsPromise, livePromise, sosialmediaPromise }
@@ -123,7 +123,9 @@ export default function Index() {
           <MapProvider>
             <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 w-full h-full">
               <div className="w-full h-64 md:h-[75vh] md:w-full rounded-lg overflow-hidden">
-                <TripsMap />
+                <Link to="https://live.sagafarmann.com" target="_blank" rel="noreferrer">
+                  <TripsMap />
+                </Link>
               </div>
               <div className="w-full h-1/3 md:w-min md:h-[75vh]">
                 <Suspense fallback={<TripsMapSidebarSkeleton />}>

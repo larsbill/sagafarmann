@@ -44,6 +44,9 @@ export default function Footer() {
                 </Link>
               </div>
               <div className="flex flex-col gap-2">
+                <Link to="/vikingshow" className="text-sm text-muted-foreground hover:text-foreground hover:underline transition-colors duration-200">
+                  Viking Show
+                </Link>
                 <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground hover:underline transition-colors duration-200">
                   Privacy Policy
                 </Link>
