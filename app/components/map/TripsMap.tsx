@@ -29,23 +29,23 @@ const TripsMap: React.FC = () => {
           'https://c.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
           'https://d.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
         ],
-        attributions: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        attributions:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
       }),
-      cacheSize: 256, // Reduced cache size
-      preload: 2, // Reduced preloading
+      cacheSize: 256,
+      preload: 2,
     });
 
     mapInstance.current = new Map({
       target: mapRef.current,
       layers: [layer],
       view,
-      maxTilesLoading: 32, // Reduced tile loading
+      maxTilesLoading: 32,
       controls: [],
-      interactions: []
+      interactions: [],
     });
 
     setIsLoading(false);
-
     map.current = mapInstance.current;
 
     return () => {
@@ -55,13 +55,19 @@ const TripsMap: React.FC = () => {
   }, [map]);
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full group">
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-secondary animate-pulse z-10">
           <p className="text-foreground">Loading map...</p>
         </div>
       )}
       <div ref={mapRef} className="w-full h-full" />
+
+      <div
+        className="absolute bottom-0 left-0 w-full py-2 bg-background/60 text-center text-foreground text-sm pointer-events-none translate-y-10 transition-[opacity,transform] duration-300 ease-in-out group-hover:translate-y-0 group-hover:pointer-events-auto"
+      >
+        Click to view the boat live
+      </div>
     </div>
   );
 };
