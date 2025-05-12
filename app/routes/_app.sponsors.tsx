@@ -65,32 +65,30 @@ export default function Sponsors() {
   return (
     <div className="container mx-auto p-6">
       <PageHeader title="Saga Farmann Sponsors" />
-      <div className="px-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sponsors.map((sponsor) => (
-            <Link
-              key={sponsor.id}
-              to={sponsor.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-full group hover:-translate-y-1 transition-transform"
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sponsors.map((sponsor) => (
+          <Link
+            key={sponsor.id}
+            to={sponsor.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="h-full group hover:-translate-y-1 transition-transform"
+          >
+            <div
+              className="h-full bg-card rounded-lg shadow-md overflow-hidden group-hover:shadow-lg transition-shadow"
             >
-              <div
-                className="h-full bg-card rounded-lg shadow-md overflow-hidden group-hover:shadow-lg transition-shadow"
-              >
-                <img
-                  src={sponsor.image}
-                  alt={sponsor.name}
-                  className="w-full h-48 bg-gray-200 object-contain p-8"
-                />
-                <div className="p-4">
-                  <h2 className="text-xl font-bold mb-2">{sponsor.name}</h2>
-                  <p className="mb-4">{sponsor.description}</p>
-                </div>
+              <img
+                src={sponsor.image}
+                alt={sponsor.name}
+                className="w-full h-48 bg-gray-200 object-contain p-8"
+              />
+              <div className="p-4">
+                <h2 className="text-xl font-bold mb-2">{sponsor.name}</h2>
+                <p className="mb-4">{sponsor.description}</p>
               </div>
-            </Link>
-          ))}
-        </div>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );
