@@ -60,6 +60,20 @@ export default function Sponsors() {
       description: "Since 2019, when we installed our first large scale battery bank, Eltek has helped us with a state of the art charging solution. With the Eltek solution we can consume both generator and shore based electricity, convert it to 48V DC and charge our batteries. But most important is that Eltek has provided us with competence, spareparts and man hours to make sure that we can charge our ship anywhere and with confidence to adjust to almost any power source we meet - well done Eltek",
       link: "https://www.eltek.com/",
     },
+    {
+      id: 8,
+      image: "/assets/images/sponsors/soli_eplemost.webp",
+      name: "Soli Eplemost",
+      description: "Apples were vital for Vikings as a reliable food source in Scandinavia's harsh climate. Also, apples is a source of vitapmin C, preventing scurvy during long winters and sea voyages. Culturally, apples held symbolic weight, and Idun's apple granted gods eternal youth. Soli eplemost will not guarantee you eternal youth, but we still think it tastes godly.",
+      link: "https://www.wiumlie.no/",
+    },
+    {
+      id: 9,
+      image: "/assets/images/sponsors/fischer_panda.webp",
+      name: "Fischer Panda",
+      description: "We are a leading manufacturer of diesel generators, hybrid and drive systems for mobile marine and vehicle applications. Our generators are renowned worldwide for their compact design and extremely low sound levels while running. Our team has over 500 technicians and dealers in over 80 countries worldwide.",
+      link: "https://www.fischerpanda.co.uk/",
+    },
   ];
 
   return (
@@ -82,9 +96,9 @@ export default function Sponsors() {
                 alt={sponsor.name}
                 className="w-full h-48 bg-gray-200 object-contain p-8"
               />
-              <div className="p-4">
-                <h2 className="text-xl font-bold mb-2">{sponsor.name}</h2>
-                <p className="mb-4">{sponsor.description}</p>
+              <div className="p-4 space-y-3">
+                <h2 className="text-xl md:text-3xl font-bold">{sponsor.name}</h2>
+                <p className="text-sm md:text-base mb-4">{sponsor.description}</p>
               </div>
             </div>
           </Link>
