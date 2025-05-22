@@ -65,7 +65,7 @@ export default function Sponsors() {
       image: "/assets/images/sponsors/soli_eplemost.webp",
       name: "Soli Eplemost",
       description: "Apples were vital for Vikings as a reliable food source in Scandinavia's harsh climate. Also, apples is a source of vitapmin C, preventing scurvy during long winters and sea voyages. Culturally, apples held symbolic weight, and Idun's apple granted gods eternal youth. Soli eplemost will not guarantee you eternal youth, but we still think it tastes godly.",
-      link: "https://www.wiumlie.no/",
+      link: "https://www.eplegaard.no/",
     },
     {
       id: 9,
