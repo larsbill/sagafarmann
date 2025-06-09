@@ -71,8 +71,15 @@ export default function Sponsors() {
       id: 9,
       image: "/assets/images/sponsors/fischer_panda.webp",
       name: "Fischer Panda",
-      description: "We are a leading manufacturer of diesel generators, hybrid and drive systems for mobile marine and vehicle applications. Our generators are renowned worldwide for their compact design and extremely low sound levels while running. Our team has over 500 technicians and dealers in over 80 countries worldwide.",
+      description: "Even though Saga Farmann is a true Viking ship, complete with sails and spirit, we need a bit more than wind and warrior grit to keep our modern navigation systems and electrical gear running. After all, we can't just sit around waiting for favorable winds like the old Norsemen did — “patience” isn't exactly a captain's favorite word. That's why we've got two trusty Fisher Panda generators on board. These quiet little workhorses keep our battery bank charged and ready, no matter what the weather's up to. They're so silent, you'll find yourself checking twice to see if they're even running — a huge bonus when the crew is living shoulder to shoulder 24/7 and new sailors are constantly joining the adventure. Big thanks to Fisher Panda for keeping the power flowing and the crew smiling. The Vikings would've loved you — if only they'd known what electricity was.",
       link: "https://www.fischerpanda.co.uk/",
+    },
+    {
+      id: 10,
+      image: "/assets/images/sponsors/owatrol.webp",
+      name: "Owatrol",
+      description: "Owatrol offers a unique portfolio of high quality products for metal and wood protection. The heritage comes from the United States with the creation of metal corrosion protection products, and from Scandinavian mastery of wood protection and maintenance, especially in the marine environment. Owatrol oil protects the 3000 iron nails from rusting, and holds the Saga Farmann together, and wood protection with Owatrol Deksolje D.1 to inhibit rot.",
+      link: "https://owatrol.no/",
     },
   ];
 
