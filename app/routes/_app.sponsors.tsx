@@ -78,7 +78,7 @@ export default function Sponsors() {
       id: 10,
       image: "/assets/images/sponsors/owatrol.webp",
       name: "Owatrol",
-      description: "Owatrol offers a unique portfolio of high quality products for metal and wood protection. The heritage comes from the United States with the creation of metal corrosion protection products, and from Scandinavian mastery of wood protection and maintenance, especially in the marine environment. Owatrol oil protects the 3000 iron nails from rusting, and holds the Saga Farmann together, and wood protection with Owatrol Deksolje D.1 to inhibit rot.",
+      description: "Groupe Durieu is a young centenial company specialised in the manufacturing of high-quality products dedicated to the protection and maintenance of materials. Its brand Owatrol® offers a unique portfofolio of solution for both metal and wood. The legendary Owatrol®oil is an essential rust inhibitor for almost 70 years! Within the wide Owatrol® wood care product range, the saturator Deksolje®D.1 is a rich and long-lasting protection formulated for exotic woods difficult to impregnate. It was originally set up for the Scandinavian boat decks, facing strong weather conditions. Proud partner with the Saga Farmann, Owatrol®oil protects her 3000 iron nails from rusting, and holds the Saga Farmann together. Meanwhile D.1. comes to shelter some of the Drakkar wood parts.",
       link: "https://owatrol.no/",
     },
   ];
