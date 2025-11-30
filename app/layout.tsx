@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/navigation/header-scroll";
 import Footer from "@/components/navigation/footer";
+import { MapProvider } from "@/components/context/map-context";
 
 const interSans = Inter({
   variable: "--font-inter-sans",
@@ -24,9 +25,11 @@ export default function RootLayout({
       <body
         className={`${interSans.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <MapProvider>
+          <Header />
+          {children}
+          <Footer />
+        </MapProvider>
       </body>
     </html>
   );

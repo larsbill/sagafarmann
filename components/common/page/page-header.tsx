@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { Bebas_Neue } from "next/font/google";
 import { Button } from "@/components/ui/button";
 
 type Action =
@@ -32,6 +33,12 @@ type VideoHero = BaseProps & {
 };
 
 type HeroHeaderProps = ImageHero | VideoHero;
+
+const outfitSans = Bebas_Neue({
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+});
 
 export default function PageHeader(props: HeroHeaderProps) {
   const {
@@ -110,9 +117,9 @@ export default function PageHeader(props: HeroHeaderProps) {
           style={{ transform: `translateY(-${textShift}px)` }}
         >
           <div className="text-center px-6">
-            <h1 className="text-white text-4xl md:text-6xl font-bold">{title}</h1>
+            <h1 className={`${outfitSans.className} antialiased text-gray-100 text-6xl md:text-7xl lg:text-[9rem] tracking-wider`}>{title}</h1>
             {description && (
-              <p className="mt-4 text-white/90 text-lg md:text-2xl max-w-3xl mx-auto">
+              <p className="text-white/90 text-lg md:text-2xl lg:text-3xl max-w-4xl mx-auto">
                 {description}
               </p>
             )}

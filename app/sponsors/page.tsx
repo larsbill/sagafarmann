@@ -3,7 +3,7 @@
 import PageBody from "@/components/common/page/page-body";
 import HeroHeader from "@/components/common/page/page-header";
 import SponsorCard from "@/components/sponsors/sponsor-card";
-import { sponsors } from "@/lib/sponsors";
+import { sponsors } from "@/lib/data/sponsors";
 
 export default function Sponsors() {
   return (

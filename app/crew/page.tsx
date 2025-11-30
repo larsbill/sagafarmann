@@ -3,7 +3,7 @@
 import PageBody from "@/components/common/page/page-body";
 import PageHeader from "@/components/common/page/page-header";
 import CrewCard from "@/components/crew/crew-card";
-import { information, roles } from "@/lib/crew";
+import { crewInformation, crewRoles } from "@/lib/data/crew";
 
 export default function Info() {
   return (
@@ -17,10 +17,10 @@ export default function Info() {
 
       <PageBody>
         <section className="space-y-10">
-          {information.map((info) => (
+          {crewInformation.map((info) => (
             <CrewCard key={info.name} crew={info} />
           ))}
-          {roles.map((info) => (
+          {crewRoles.map((info) => (
             <CrewCard key={info.name} crew={info} />
           ))}
         </section>

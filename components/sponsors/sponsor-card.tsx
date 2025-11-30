@@ -6,14 +6,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { Copy, CopyCheck, ExternalLink } from "lucide-react";
-
-export type Sponsor = {
-  id: string | number;
-  name: string;
-  image: string;
-  description: string;
-  link: string;
-};
+import { Sponsor } from "./sponsor-marquee";
 
 type SponsorCardProps = {
   sponsor: Sponsor;
@@ -35,6 +28,7 @@ export default function SponsorCard({ sponsor, className }: SponsorCardProps) {
 
   return (
     <article
+      id={`sponsor-${sponsor.name.toLowerCase().replace(/\s+/g, "-")}`}
       className={cn(
         "group relative h-full rounded-lg overflow-clip p-5 border border-border bg-card shadow-sm",
         className

@@ -54,7 +54,6 @@ export default function Header() {
   const mobileBtnBgAlpha = 0.25 * (1 - progress);
   const mobileBtnRingAlpha = 0.25 * (1 - progress);
 
-  // Separate left and right padding values
   const mobilePaddingLeft = lerp(0, 16);
   const mobilePaddingRight = lerp(0, 12);
 

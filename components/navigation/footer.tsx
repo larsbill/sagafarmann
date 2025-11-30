@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
+import { SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
+import { ReactNode } from "react";
 
 interface MenuItem {
   title: string;
@@ -23,7 +25,7 @@ interface FooterProps {
   menuItems?: MenuItem[];
   rightsText?: string;
   madeBy?: { name: string; url: string };
-  smallLinks?: { text: string; url: string }[];
+  smallLinks?: { text: string; icon: ReactNode; url: string }[];
 }
 
 export default function Footer({
@@ -73,14 +75,14 @@ export default function Footer({
   rightsText = `© ${new Date().getFullYear()} Saga Farmann. All rights reserved.`,
   madeBy = { name: "Robert Arnorsson", url: "https://robertarnorsson.com" },
   smallLinks = [
-    { text: "Contact", url: "/contact" },
-    { text: "Donate", url: "/donate" },
-    { text: "Join", url: "/join" }
+    { text: "Facebook", icon: <SiFacebook />, url: "https://www.facebook.com/VikingskipetSagaFarmann" },
+    { text: "Instagram", icon: <SiInstagram />, url: "https://www.instagram.com/original_vikings_of_norway/" },
+    { text: "YouTube", icon: <SiYoutube />, url: "https://www.youtube.com/channel/UCaPUAvRBw0i5ET79TMh2_MQ" }
   ]
 }: FooterProps) {
   return (
-    <footer className="w-full border-t border-white/10 text-sm text-foreground/80">
-      <div className="container mx-auto p-6">
+    <footer className="relative w-full bg-background border-t border-white/10 text-sm text-foreground/80 z-10">
+      <div className="container mx-auto px-6 py-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-6">
           <div className="col-span-2">
             <Link href={logo.url ?? "/"} className="inline-flex items-center">
@@ -143,7 +145,7 @@ export default function Footer({
           <ul className="flex flex-wrap items-center gap-4">
             {smallLinks.map((l) => (
               <li key={l.text}>
-                <SmallHoverLink href={l.url}>{l.text}</SmallHoverLink>
+                <SosialLink href={l.url}>{l.icon}</SosialLink>
               </li>
             ))}
           </ul>
@@ -169,17 +171,15 @@ function HoverLink({ href, children }: { href: string; children: React.ReactNode
   );
 }
 
-function SmallHoverLink({ href, children }: { href: string; children: React.ReactNode }) {
+function SosialLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <Link
       href={href}
-      className="relative inline-flex text-xs text-foreground/70 transition-colors hover:text-foreground"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative inline-flex text-xl text-foreground/70 transition-colors hover:text-foreground"
     >
-      <span className="relative">
-        <span className="after:absolute after:-bottom-px after:left-0 after:h-px after:w-0 after:bg-current after:transition-[width] after:duration-300 hover:after:w-full">
-          {children}
-        </span>
-      </span>
+      {children}
     </Link>
   );
 }
