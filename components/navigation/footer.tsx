@@ -8,7 +8,7 @@ import { ReactNode } from "react";
 
 interface MenuItem {
   title: string;
-  links: { text: string; url: string }[];
+  links: { text: string; url: string; external?: boolean; }[];
 }
 
 interface SocialItem {
@@ -38,39 +38,26 @@ export default function Footer({
     {
       title: "Explore",
       links: [
+        { text: "Sponsors", url: "/sponsors" },
         { text: "About Us", url: "/about" },
-        { text: "Viking Show", url: "/viking-show" },
         { text: "Crew Info", url: "/crew" },
-        { text: "Sponsors", url: "/sponsors" }
+        { text: "Donate", url: "https://www.paypal.com/donate/?hosted_button_id=2EAXYY2GZBJMY", external: true },
       ]
     },
     {
-      title: "Visit",
+      title: "Social",
       links: [
-        { text: "Opening Hours", url: "/hours" },
-        { text: "Tickets", url: "/tickets" },
-        { text: "Location", url: "/location" },
-        { text: "FAQ", url: "/faq" }
+        { text: "Facebook", url: "https://www.facebook.com/VikingskipetSagaFarmann", external: true },
+        { text: "Instagram", url: "https://www.instagram.com/original_vikings_of_norway/", external: true },
+        { text: "Youtube", url: "https://www.youtube.com/channel/UCaPUAvRBw0i5ET79TMh2_MQ", external: true },
       ]
     },
     {
-      title: "Programs",
+      title: "Legal",
       links: [
-        { text: "Workshops", url: "/workshops" },
-        { text: "Events", url: "/events" },
-        { text: "Schools", url: "/schools" },
-        { text: "Families", url: "/families" }
+        { text: "Privacy Policy", url: "/privacy" },
       ]
     },
-    {
-      title: "Community",
-      links: [
-        { text: "Join Us", url: "/join" },
-        { text: "Volunteer", url: "/volunteer" },
-        { text: "Donate", url: "/donate" },
-        { text: "Newsletter", url: "/newsletter" }
-      ]
-    }
   ],
   rightsText = `© ${new Date().getFullYear()} Saga Farmann. All rights reserved.`,
   madeBy = { name: "Robert Arnorsson", url: "https://robertarnorsson.com" },
@@ -119,7 +106,7 @@ export default function Footer({
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.text}>
-                    <HoverLink href={link.url}>{link.text}</HoverLink>
+                    <HoverLink href={link.url} external={link.external}>{link.text}</HoverLink>
                   </li>
                 ))}
               </ul>
@@ -145,7 +132,7 @@ export default function Footer({
           <ul className="flex flex-wrap items-center gap-4">
             {smallLinks.map((l) => (
               <li key={l.text}>
-                <SosialLink href={l.url}>{l.icon}</SosialLink>
+                <SocialLink href={l.url}>{l.icon}</SocialLink>
               </li>
             ))}
           </ul>
@@ -156,11 +143,13 @@ export default function Footer({
 }
 
 
-function HoverLink({ href, children }: { href: string; children: React.ReactNode }) {
+function HoverLink({ href, external = false, children }: { href: string; external?: boolean; children: React.ReactNode }) {
   return (
     <Link
       href={href}
       className="relative inline-flex text-foreground/70 transition-colors hover:text-foreground"
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
     >
       <span className="relative">
         <span className="after:absolute after:-bottom-px after:left-0 after:h-px after:w-0 after:bg-current after:transition-[width] after:duration-300 hover:after:w-full">
@@ -171,7 +160,7 @@ function HoverLink({ href, children }: { href: string; children: React.ReactNode
   );
 }
 
-function SosialLink({ href, children }: { href: string; children: React.ReactNode }) {
+function SocialLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <Link
       href={href}

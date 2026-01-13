@@ -66,7 +66,6 @@ export default function Header() {
               <Link href="/sponsors" className="hover:text-foreground">Sponsors</Link>
               <Link href="/about" className="hover:text-foreground">About Us</Link>
               <Link href="/info" className="hover:text-foreground">Info</Link>
-              <Link href="/viking-show" className="hover:text-foreground">Viking Show</Link>
             </nav>
           </div>
 

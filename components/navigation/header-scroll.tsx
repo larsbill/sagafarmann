@@ -109,7 +109,6 @@ export default function Header() {
             <Link href="/sponsors" className="hover:text-foreground">Sponsors</Link>
             <Link href="/about" className="hover:text-foreground">About Us</Link>
             <Link href="/crew" className="hover:text-foreground">Crew Info</Link>
-            <Link href="/viking-show" className="hover:text-foreground">Viking Show</Link>
           </nav>
 
           <div className="flex items-center gap-2 ml-auto relative z-10">
@@ -181,14 +180,6 @@ export default function Header() {
                         className="rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground"
                       >
                         Crew Info
-                      </Link>
-                    </SheetClose>
-                    <SheetClose asChild>
-                      <Link
-                        href="/viking-show"
-                        className="rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground"
-                      >
-                        Viking Show
                       </Link>
                     </SheetClose>
 

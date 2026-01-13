@@ -17,7 +17,7 @@ export default function About() {
       />
 
       <PageBody>
-        <div className="grid gap-10">
+        <div className="grid gap-10 py-24">
           {aboutInfo.map((info) => (
             <div
               key={info.id}

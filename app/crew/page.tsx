@@ -16,7 +16,7 @@ export default function Info() {
       />
 
       <PageBody>
-        <section className="space-y-10">
+        <section className="space-y-10 py-24">
           {crewInformation.map((info) => (
             <CrewCard key={info.name} crew={info} />
           ))}

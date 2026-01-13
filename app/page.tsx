@@ -1,8 +1,6 @@
 import AutoMarquee from "@/components/common/auto-marquee";
-import HeroHeader from "@/components/common/page/page-header";
-import { SosialMediaCardSkeleton, SosialMediaGroup } from "@/components/common/sosial-media";
+import PageHeader from "@/components/common/page/page-header";
 import SponsorMarquee from "@/components/sponsors/sponsor-marquee";
-import { getSosialMediaPosts } from "@/lib/server/sosialmedia";
 import { sponsors } from "@/lib/data/sponsors";
 import { Suspense } from "react";
 import MapOl from "@/components/common/map/map";
@@ -12,10 +10,10 @@ import { shuffleArray } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import SponsorSpotlight from "@/components/sponsors/sponsor-spotlight";
+import { socialMediaList } from "@/lib/data/socialmedia";
+import { SocialMediaCard } from "@/components/common/sosial-media";
 
 export default function Home() {
-
-  const posts = getSosialMediaPosts();
 
   const trips = getTrips();
   const stages = getStages();
@@ -26,18 +24,18 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-background font-sans">
-      <HeroHeader
+      <PageHeader
         videoSrc="/assets/videos/landing_page_video.webm"
         videoType="video/webm"
-        title="Experience the voyage"
-        description="Discover new worlds, explore the unknown, and join the journey"
+        title="Experience Saga Farmann"
+        description="Discover new worlds, explore the unknown, and join the adventure"
         heightVh={100}
         parallaxStrength={0.3}
       />
 
-      <main className="relative z-10 w-full bg-background">
-        <section className="w-full min-h-screen flex items-center justify-center px-4 pt-24">
-          <div className="container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <main className="relative z-10 w-full bg-card">
+        <section className="w-full flex items-center justify-center px-4 py-48">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             <div className="flex flex-col items-start text-left">
               <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6">
@@ -51,12 +49,12 @@ export default function Home() {
 
               <div className="flex flex-wrap gap-4 mb-12">
                 <Button asChild size="lg">
-                  <Link href="/map">
+                  <Link href="https://live.sagafarmann.com" target="_blank" rel="noopener noreferrer">
                     Open full live map
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="secondary">
-                  <Link href="/voyage">
+                  <Link href="/map">
                     Voyage details
                   </Link>
                 </Button>
@@ -72,8 +70,37 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="w-full flex items-center justify-center px-4 py-32 bg-background">
+          <div className="container w-full relative">
 
-        <section className="w-full bg-card py-32">
+            <div className="mx-auto text-center mb-16">
+              <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6">
+                EXPERIENCE THE ADVENTURE
+              </h2>
+              <p className="text-2xl text-muted-foreground mb-10">
+                Join the voyage, follow us on social media and get inspired by the journey and the crew behind it.
+              </p>
+            </div>
+
+            <div className="flex w-full justify-center">
+              <div className="grid grid-cols-1 gap-6 md:hidden">
+                {socialMediaList
+                  .filter((i) => !i.hiddenOnMobile)
+                  .map((item) => (
+                    <SocialMediaCard key={item.id} item={item} />
+                  ))}
+              </div>
+
+              <div className="hidden md:grid gap-6 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 w-fit">
+                {socialMediaList.slice(0, 9).map((item) => (
+                  <SocialMediaCard key={item.id} item={item} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="w-full bg-card py-48 pb-24">
           <div className="mx-auto container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             <div className="flex flex-col items-start text-left px-4 sm:px-0">
@@ -111,16 +138,6 @@ export default function Home() {
                 <SponsorMarquee key={i} sponsor={item} />
               ))}
             </AutoMarquee>
-          </div>
-        </section>
-
-        <section className="w-full flex items-center justify-center px-4 py-32">
-          <div className="container w-full">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              <Suspense fallback={[...Array(3)].map((_, idx) => (<SosialMediaCardSkeleton key={idx} />))}>
-                <SosialMediaGroup posts={posts} />
-              </Suspense>
-            </div>
           </div>
         </section>
 

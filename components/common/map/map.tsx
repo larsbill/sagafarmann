@@ -6,6 +6,7 @@ import { Map, View } from "ol";
 import TileLayer from "ol/layer/Tile";
 import { XYZ } from "ol/source";
 import { fromLonLat } from "ol/proj";
+import { defaults as defaultInteractions } from "ol/interaction";
 import { Live, Stage, Trip, Waypoint } from "@/types/map";
 
 type MapOlProps = {
@@ -13,9 +14,18 @@ type MapOlProps = {
   stages: Promise<Stage[]>;
   waypoints: Promise<Waypoint[]>;
   live: Promise<Live | null>;
+  showAllRoutes?: boolean;
+  interactive?: boolean;
 };
 
-export default function MapOl({ trips, stages, waypoints, live }: MapOlProps) {
+export default function MapOl({
+  trips,
+  stages,
+  waypoints,
+  live,
+  showAllRoutes = false,
+  interactive = false,
+}: MapOlProps) {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const mapInstance = useRef<Map | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -28,9 +38,7 @@ export default function MapOl({ trips, stages, waypoints, live }: MapOlProps) {
   const allWaypoints = use(waypoints);
 
   useEffect(() => {
-    if (livePos) {
-      updateLivePos(livePos);
-    }
+    if (livePos) updateLivePos(livePos);
   }, [livePos, updateLivePos]);
 
   useEffect(() => {
@@ -64,7 +72,7 @@ export default function MapOl({ trips, stages, waypoints, live }: MapOlProps) {
       view,
       maxTilesLoading: 32,
       controls: [],
-      interactions: [],
+      interactions: interactive ? defaultInteractions() : [],
     });
 
     setIsLoading(false);
@@ -75,56 +83,97 @@ export default function MapOl({ trips, stages, waypoints, live }: MapOlProps) {
       map.current = null;
       mapInstance.current?.setTarget(undefined);
     };
-  }, [livePos, map, updateLivePos]);
+  }, [map, interactive]);
 
   useEffect(() => {
     if (!map.current) return;
     if (!allTrips.length) return;
 
-    const years = allTrips
-      .map((t) => t.year)
-      .filter((y) => typeof y === "number" && !Number.isNaN(y));
+    const toExtent = (coords: number[][]) =>
+      coords.reduce(
+        (ext, coord) => {
+          ext[0] = Math.min(ext[0], coord[0]);
+          ext[1] = Math.min(ext[1], coord[1]);
+          ext[2] = Math.max(ext[2], coord[0]);
+          ext[3] = Math.max(ext[3], coord[1]);
+          return ext;
+        },
+        [Infinity, Infinity, -Infinity, -Infinity] as number[]
+      );
 
-    if (!years.length) return;
+    const mergeExtents = (
+      a: number[],
+      b: number[]
+    ): number[] => {
+      return [
+        Math.min(a[0], b[0]),
+        Math.min(a[1], b[1]),
+        Math.max(a[2], b[2]),
+        Math.max(a[3], b[3]),
+      ];
+    };
 
-    const latestYear = Math.max(...years);
+    const getTripCoords = (tripId: number) => {
+      const tripStages = allStages.filter((stage) => stage.trip_id === tripId);
 
-    const latestYearTrips = allTrips.filter((t) => t.year === latestYear);
-    if (!latestYearTrips.length) return;
-
-    const latestTrip = latestYearTrips[latestYearTrips.length - 1];
-
-    const tripStages = allStages.filter((stage) => stage.trip_id === latestTrip.id);
-
-    const tripCoords = tripStages.flatMap((stage) =>
-      allWaypoints
-        .filter((wp) => wp.stage_id === stage.id)
-        .map((wp) => fromLonLat([wp.longitude, wp.latitude]))
-    );
+      return tripStages.flatMap((stage) =>
+        allWaypoints
+          .filter((wp) => wp.stage_id === stage.id)
+          .map((wp) => fromLonLat([wp.longitude, wp.latitude]))
+      );
+    };
 
     removeWaypoints();
 
-    if (!tripCoords.length) return;
+    let globalExtent: number[] | null = null;
 
-    const color = latestTrip.color ?? "#1e90ff";
-    addWaypoints(tripCoords, color);
+    if (showAllRoutes) {
+      for (const trip of allTrips) {
+        const coords = getTripCoords(trip.id);
+        if (!coords.length) continue;
 
-    const extent = tripCoords.reduce(
-      (ext, coord) => {
-        ext[0] = Math.min(ext[0], coord[0]); // min x
-        ext[1] = Math.min(ext[1], coord[1]); // min y
-        ext[2] = Math.max(ext[2], coord[0]); // max x
-        ext[3] = Math.max(ext[3], coord[1]); // max y
-        return ext;
-      },
-      [Infinity, Infinity, -Infinity, -Infinity] as [number, number, number, number]
-    );
+        const color = trip.color ?? "#1e90ff";
+        addWaypoints(coords, color);
 
-    map.current.getView().fit(extent, {
+        const ext = toExtent(coords);
+        globalExtent = globalExtent ? mergeExtents(globalExtent, ext) : ext;
+      }
+    } else {
+      const years = allTrips
+        .map((t) => t.year)
+        .filter((y) => typeof y === "number" && !Number.isNaN(y));
+
+      if (!years.length) return;
+
+      const latestYear = Math.max(...years);
+      const latestYearTrips = allTrips.filter((t) => t.year === latestYear);
+      if (!latestYearTrips.length) return;
+
+      const latestTrip = latestYearTrips[latestYearTrips.length - 1];
+      const coords = getTripCoords(latestTrip.id);
+      if (!coords.length) return;
+
+      const color = latestTrip.color ?? "#1e90ff";
+      addWaypoints(coords, color);
+
+      globalExtent = toExtent(coords);
+    }
+
+    if (!globalExtent) return;
+
+    map.current.getView().fit(globalExtent, {
       padding: [25, 25, 25, 25],
       duration: 500,
     });
-  }, [allTrips, allStages, allWaypoints, map, addWaypoints, removeWaypoints]);
+  }, [
+    allTrips,
+    allStages,
+    allWaypoints,
+    map,
+    addWaypoints,
+    removeWaypoints,
+    showAllRoutes,
+  ]);
 
   return (
     <div className="relative w-full h-full group rounded-lg overflow-clip">
