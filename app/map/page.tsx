@@ -23,7 +23,7 @@ export default function Map() {
       />
       <PageBody fullWidth>
         <section className="h-[90vh] w-full flex flex-row gap-4">
-          <div className="w-lg h-full flex flex-col justify-center bg-secondary p-4 rounded-md">
+          <div className="w-lg h-full flex-col justify-center bg-secondary p-4 rounded-md hidden md:flex">
             <h1 className="text-2xl text-center">The route for this year will soon be published.</h1>
             <p className="text-muted-foreground text-center">Stay tuned for updates!</p>
           </div>

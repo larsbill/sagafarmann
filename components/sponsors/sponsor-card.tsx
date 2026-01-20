@@ -77,7 +77,7 @@ export default function SponsorCard({ sponsor, className }: SponsorCardProps) {
           href={sponsor.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-foreground/50 hover:text-foreground/80 transition-colors whitespace-nowrap"
+          className="text-sm text-foreground/50 hover:text-foreground/80 transition-colors whitespace-nowrap hidden md:inline-block"
         >
           {new URL(sponsor.link).hostname}
         </Link>
