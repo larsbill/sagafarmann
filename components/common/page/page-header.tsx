@@ -106,16 +106,6 @@ export default function PageHeader(props: PageHeaderProps) {
 
       container.style.opacity = hidden ? "0" : "1";
       container.style.pointerEvents = hidden ? "none" : "auto";
-
-      const vid = videoRef.current;
-      if (vid) {
-        if (hidden) {
-          vid.pause();
-        } else {
-          const p = vid.play();
-          if (p && typeof p.catch === "function") p.catch(() => { });
-        }
-      }
     };
 
     let removeScrollListener: (() => void) | null = null;
@@ -345,7 +335,7 @@ export default function PageHeader(props: PageHeaderProps) {
           className="relative h-full flex items-center justify-center will-change-transform"
           style={{ transform: "translate3d(0, 0, 0)" }}
         >
-          <div className="text-center px-6">
+          <div className="text-center px-4 md:px-6">
             <h1
               className={`${bebasNeue.className} antialiased text-gray-100 text-6xl md:text-7xl lg:text-[9rem] tracking-wider`}
             >

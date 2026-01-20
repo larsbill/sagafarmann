@@ -19,8 +19,8 @@ export function SocialMediaCard({ item }: { item: SocialMedia }) {
   }, [hasImage, hasVideo]);
 
   const inner = (
-    <div className="group block">
-      <div className="rounded-lg shadow-md bg-card overflow-hidden w-96 h-96">
+    <div className="group flex">
+      <div className="rounded-lg shadow-md bg-card mx-auto overflow-hidden w-64 h-64 md:w-96 md:h-96">
         <div className="relative w-full h-full">
           {choice === "image" && item.image ? (
             <Image
