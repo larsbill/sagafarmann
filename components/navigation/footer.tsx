@@ -50,6 +50,7 @@ export default function Footer({
         { text: "Facebook", url: "https://www.facebook.com/VikingskipetSagaFarmann", external: true },
         { text: "Instagram", url: "https://www.instagram.com/original_vikings_of_norway/", external: true },
         { text: "Youtube", url: "https://www.youtube.com/channel/UCaPUAvRBw0i5ET79TMh2_MQ", external: true },
+        { text: "LinkedIn", url: "https://www.linkedin.com/company/oseberg-vikingarv/", external: true },
       ]
     },
     {
