@@ -5,7 +5,7 @@ export const socialMediaList: SocialMedia[] = [
     id: 1,
     title: "Saga Farmann on Facebook",
     image: "/assets/images/social/social_image_1.jpg",
-    url: "https://www.facebook.com/VikingskipetSagaFarmann",
+    url: "https://www.linkedin.com/company/oseberg-vikingarv/",
     hiddenOnMobile: true,
   },
   {
@@ -19,7 +19,7 @@ export const socialMediaList: SocialMedia[] = [
     id: 3,
     title: "Saga Farmann on Facebook",
     image: "/assets/images/social/social_image_3.jpg",
-    url: "https://www.instagram.com/original_vikings_of_norway/",
+    url: "https://www.instagram.com/osebergvikingheritage/",
     hiddenOnMobile: true,
   },
   {
@@ -33,7 +33,7 @@ export const socialMediaList: SocialMedia[] = [
     id: 5,
     title: "Saga Farmann on Facebook",
     image: "/assets/images/social/instagram.png",
-    url: "https://www.instagram.com/original_vikings_of_norway/",
+    url: "https://www.instagram.com/osebergvikingheritage/",
     hiddenOnMobile: false,
   },
   {
@@ -47,7 +47,7 @@ export const socialMediaList: SocialMedia[] = [
     id: 7,
     title: "Saga Farmann on Facebook",
     image: "/assets/images/social/social_image_6.jpg",
-    url: "https://www.instagram.com/original_vikings_of_norway/",
+    url: "hhttps://www.instagram.com/osebergvikingheritage/",
     hiddenOnMobile: true,
   },
   {

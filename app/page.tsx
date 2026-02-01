@@ -110,8 +110,7 @@ export default function Home() {
                 </h2>
 
                 <p className="text-base sm:text-lg md:text-2xl max-w-xl text-muted-foreground mb-6 sm:mb-10 leading-relaxed">
-                  Their generosity helps make the voyage possible. With their support the mission grows stronger,
-                  the journey becomes richer, and innovation continues to thrive.
+                  Their contribution is key to the successful execution of the voyage, and enables the vessel and crew to visit people and places around Europe year after year.
                 </p>
 
                 <div className="flex w-full flex-row gap-3 sm:gap-4 mb-6 sm:mb-12">
@@ -119,7 +118,7 @@ export default function Home() {
                     <Link href="/sponsors">Explore Sponsors</Link>
                   </Button>
                   <Button asChild variant="secondary" className="h-10 sm:w-auto sm:h-16 sm:px-10 sm:text-lg">
-                    <Link href="/donate">Donate</Link>
+                    <Link href="https://www.paypal.com/donate/?hosted_button_id=2EAXYY2GZBJMY">Donate</Link>
                   </Button>
                 </div>
               </div>

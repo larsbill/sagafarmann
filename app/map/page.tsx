@@ -17,8 +17,8 @@ export default function Map() {
       <PageHeader
         videoSrc="/assets/videos/about_video.webm"
         videoType="video/webm"
-        title="Saga Farmann Map"
-        description="Saga Farmann is an archaeological reconstruction of the Klåstadship, often referred to as Norway's fourth Viking ship."
+        title="SAGA MIDGARD 2026"
+        description="Saga Farmann will be sailing from the England to Sweden in the summer of 2026, during which she will visit ports in Benelux, Germany, Denmark and Sweden. Follow and visit us along the route. We welcome you on board!"
         heightVh={90}
       />
       <PageBody fullWidth>
