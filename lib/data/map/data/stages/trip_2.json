@@ -1,0 +1,72 @@
+[
+  {
+    "id": 9,
+    "trip_id": 2,
+    "name": "Stage 1",
+    "description": "Leaving Miklagard and heading into the Mediteranian.",
+    "departure_port": "Istanbul",
+    "departure_date": "18/05/2024",
+    "arrival_port": "Cesme",
+    "arrival_date": "02/06/2024"
+  },
+  {
+    "id": 10,
+    "trip_id": 2,
+    "name": "Stage 2",
+    "description": "",
+    "departure_port": "Cesme",
+    "departure_date": "01/06/2024",
+    "arrival_port": "Syros",
+    "arrival_date": "16/06/2024"
+  },
+  {
+    "id": 11,
+    "trip_id": 2,
+    "name": "Stage 3",
+    "description": "",
+    "departure_port": "Syros",
+    "departure_date": "15/06/2024",
+    "arrival_port": "Athenes",
+    "arrival_date": "30/06/2024"
+  },
+  {
+    "id": 12,
+    "trip_id": 2,
+    "name": "Stage 4",
+    "description": "",
+    "departure_port": "Athenes",
+    "departure_date": "29/06/2024",
+    "arrival_port": "Corfu",
+    "arrival_date": "07/07/2024"
+  },
+  {
+    "id": 13,
+    "trip_id": 2,
+    "name": "Stage 5",
+    "description": "",
+    "departure_port": "Corfu",
+    "departure_date": "06/07/2024",
+    "arrival_port": "Split",
+    "arrival_date": "21/07/2024"
+  },
+  {
+    "id": 14,
+    "trip_id": 2,
+    "name": "Stage 6",
+    "description": "",
+    "departure_port": "Split",
+    "departure_date": "21/07/2024",
+    "arrival_port": "Split",
+    "arrival_date": "03/08/2024"
+  },
+  {
+    "id": 15,
+    "trip_id": 2,
+    "name": "Stage 7",
+    "description": "",
+    "departure_port": "Split",
+    "departure_date": "04/08/2024",
+    "arrival_port": "Rome",
+    "arrival_date": "31/08/2024"
+  }
+]

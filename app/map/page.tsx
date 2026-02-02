@@ -2,7 +2,8 @@ import MapOl from "@/components/common/map/map";
 import MapLoading from "@/components/common/map/map-loading";
 import PageBody from "@/components/common/page/page-body";
 import PageHeader from "@/components/common/page/page-header";
-import { getLive, getStages, getTrips, getWaypoints } from "@/lib/server/map";
+import { getStages, getTrips, getWaypoints } from "@/lib/data/map/map";
+import { getLive } from "@/lib/server/map";
 import { Suspense } from "react";
 
 export default function Map() {
@@ -10,6 +11,7 @@ export default function Map() {
   const trips = getTrips();
   const stages = getStages();
   const waypoints = getWaypoints();
+
   const live = getLive();
 
   return (

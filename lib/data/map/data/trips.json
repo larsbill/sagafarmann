@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Saga Asia 2023",
+    "description": "Saga Farmann startet an epic voyage into an unknown future from Norways oldest town.",
+    "year": 2023,
+    "color": "#5B59F1",
+    "departure_port": "Tønsberg",
+    "departure_date": "29/04/2023",
+    "arrival_port": "Istanbul",
+    "arrival_date": "19/08/2023"
+  },
+  {
+    "id": 2,
+    "name": "Saga Med 2024",
+    "description": "The Saga Farmann adventure continues troughout the Mediteranien with the antique city of Rome as destination.",
+    "year": 2024,
+    "color": "#60DC6A",
+    "departure_port": "Istanbul",
+    "departure_date": "18/05/2024",
+    "arrival_port": "Rome",
+    "arrival_date": "31/08/2024"
+  },
+  {
+    "id": 3,
+    "name": "Saga Lundenwic 2025",
+    "description": "The voyage continues and Saga Farmann leaves the Mediteranien and sets sail for England.",
+    "year": 2025,
+    "color": "#c42e3c",
+    "departure_port": "Rome",
+    "departure_date": "10/05/2025",
+    "arrival_port": "London",
+    "arrival_date": "31/08/2025"
+  }
+]
