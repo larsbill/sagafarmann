@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "trip_id": 1,
+    "name": "Stage 1",
+    "description": "Crossing Skagerak",
+    "departure_port": "Tønsberg",
+    "departure_date": "29/04/2023",
+    "arrival_port": "Lübeck",
+    "arrival_date": "31/05/2023"
+  },
+  {
+    "id": 2,
+    "trip_id": 1,
+    "name": "Stage 2",
+    "description": "Entering the channels of Germany",
+    "departure_port": "Lübeck",
+    "departure_date": "14/05/2023",
+    "arrival_port": "Mainz",
+    "arrival_date": "27/05/2023"
+  },
+  {
+    "id": 3,
+    "trip_id": 1,
+    "name": "Stage 3",
+    "description": "From Germany to Austria",
+    "departure_port": "Mainz",
+    "departure_date": "28/05/2023",
+    "arrival_port": "Linz",
+    "arrival_date": "10/06/2023"
+  },
+  {
+    "id": 4,
+    "trip_id": 1,
+    "name": "Stage 4",
+    "description": "",
+    "departure_port": "Linz",
+    "departure_date": "11/06/2023",
+    "arrival_port": "Budapest",
+    "arrival_date": "24/06/2023"
+  },
+  {
+    "id": 5,
+    "trip_id": 1,
+    "name": "Stage 5",
+    "description": "",
+    "departure_port": "Budapest",
+    "departure_date": "25/06/2023",
+    "arrival_port": "Belgrade",
+    "arrival_date": "08/07/2023"
+  },
+  {
+    "id": 6,
+    "trip_id": 1,
+    "name": "Stage 6",
+    "description": "",
+    "departure_port": "Belgrade",
+    "departure_date": "09/07/2023",
+    "arrival_port": "Constanta",
+    "arrival_date": "22/07/2023"
+  },
+  {
+    "id": 7,
+    "trip_id": 1,
+    "name": "Stage 7",
+    "description": "",
+    "departure_port": "Constanta",
+    "departure_date": "23/07/2023",
+    "arrival_port": "Istanbul",
+    "arrival_date": "05/08/2023"
+  },
+  {
+    "id": 8,
+    "trip_id": 1,
+    "name": "Stage 8",
+    "description": "Prepare for the winter in Istanbul",
+    "departure_port": "Istanbul",
+    "departure_date": "06/08/2023",
+    "arrival_port": "Istanbul",
+    "arrival_date": "19/08/2023"
+  }
+]

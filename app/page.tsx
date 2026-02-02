@@ -4,7 +4,7 @@ import SponsorMarquee from "@/components/sponsors/sponsor-marquee";
 import { sponsors } from "@/lib/data/sponsors";
 import { Suspense } from "react";
 import MapOl from "@/components/common/map/map";
-import { getLive, getStages, getTrips, getWaypoints } from "@/lib/server/map";
+import { getLive } from "@/lib/server/map";
 import MapLoading from "@/components/common/map/map-loading";
 import { shuffleArray } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -12,6 +12,7 @@ import Link from "next/link";
 import SponsorSpotlight from "@/components/sponsors/sponsor-spotlight";
 import { socialMediaList } from "@/lib/data/socialmedia";
 import { SocialMediaCard } from "@/components/common/sosial-media";
+import { getStages, getTrips, getWaypoints } from "@/lib/data/map/map";
 
 export default function Home() {
   const trips = getTrips();

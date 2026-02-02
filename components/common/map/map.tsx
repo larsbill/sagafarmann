@@ -10,9 +10,9 @@ import { defaults as defaultInteractions } from "ol/interaction";
 import { Live, Stage, Trip, Waypoint } from "@/types/map";
 
 type MapOlProps = {
-  trips: Promise<Trip[]>;
-  stages: Promise<Stage[]>;
-  waypoints: Promise<Waypoint[]>;
+  trips: Trip[];
+  stages: Stage[];
+  waypoints: Waypoint[];
   live: Promise<Live | null>;
   showAllRoutes?: boolean;
   interactive?: boolean;
@@ -33,9 +33,6 @@ export default function MapOl({
   const { map, updateLivePos, addWaypoints, removeWaypoints } = useMap();
 
   const livePos = use(live);
-  const allTrips = use(trips);
-  const allStages = use(stages);
-  const allWaypoints = use(waypoints);
 
   useEffect(() => {
     if (livePos) updateLivePos(livePos);
@@ -87,7 +84,7 @@ export default function MapOl({
 
   useEffect(() => {
     if (!map.current) return;
-    if (!allTrips.length) return;
+    if (!trips.length) return;
 
     const toExtent = (coords: number[][]) =>
       coords.reduce(
@@ -114,10 +111,10 @@ export default function MapOl({
     };
 
     const getTripCoords = (tripId: number) => {
-      const tripStages = allStages.filter((stage) => stage.trip_id === tripId);
+      const tripStages = stages.filter((stage) => stage.trip_id === tripId);
 
       return tripStages.flatMap((stage) =>
-        allWaypoints
+        waypoints
           .filter((wp) => wp.stage_id === stage.id)
           .map((wp) => fromLonLat([wp.longitude, wp.latitude]))
       );
@@ -128,7 +125,7 @@ export default function MapOl({
     let globalExtent: number[] | null = null;
 
     if (showAllRoutes) {
-      for (const trip of allTrips) {
+      for (const trip of trips) {
         const coords = getTripCoords(trip.id);
         if (!coords.length) continue;
 
@@ -139,14 +136,14 @@ export default function MapOl({
         globalExtent = globalExtent ? mergeExtents(globalExtent, ext) : ext;
       }
     } else {
-      const years = allTrips
+      const years = trips
         .map((t) => t.year)
         .filter((y) => typeof y === "number" && !Number.isNaN(y));
 
       if (!years.length) return;
 
       const latestYear = Math.max(...years);
-      const latestYearTrips = allTrips.filter((t) => t.year === latestYear);
+      const latestYearTrips = trips.filter((t) => t.year === latestYear);
       if (!latestYearTrips.length) return;
 
       const latestTrip = latestYearTrips[latestYearTrips.length - 1];
@@ -166,9 +163,9 @@ export default function MapOl({
       duration: 500,
     });
   }, [
-    allTrips,
-    allStages,
-    allWaypoints,
+    trips,
+    stages,
+    waypoints,
     map,
     addWaypoints,
     removeWaypoints,
