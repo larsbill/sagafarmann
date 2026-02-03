@@ -23,7 +23,7 @@ export default function Info() {
                 CREW INFORMATION FOR THE 2026 VOYAGE
               </h2>
               <p className="text-base sm:text-lg md:text-2xl text-muted-foreground mb-0 leading-relaxed">
-                ØLAKSJDFLKSDJF 
+                Below you will find all the necessary information for crew members joining Saga Farmann for the 2026 voyage. Please read through the details carefully to ensure a smooth and enjoyable experience on board.
               </p>
             </div>
           </div>
