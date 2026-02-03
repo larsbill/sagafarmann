@@ -1,0 +1,112 @@
+[
+  {
+    "id": 26,
+    "trip_id": 4,
+    "name": "Stage 1",
+    "description": "",
+    "departure_port": "Rome",
+    "departure_date": "15/05/2025",
+    "arrival_port": "Genoa",
+    "arrival_date": "31/05/2025"
+  },
+  {
+    "id": 27,
+    "trip_id": 4,
+    "name": "Stage 2",
+    "description": "",
+    "departure_port": "Genoa",
+    "departure_date": "31/05/2025",
+    "arrival_port": "Nice",
+    "arrival_date": "15/06/2025"
+  },
+  {
+    "id": 28,
+    "trip_id": 4,
+    "name": "Stage 3",
+    "description": "",
+    "departure_port": "Nice",
+    "departure_date": "14/06/2025",
+    "arrival_port": "Marseille",
+    "arrival_date": "22/06/2025"
+  },
+  {
+    "id": 29,
+    "trip_id": 4,
+    "name": "Stage 4",
+    "description": "",
+    "departure_port": "Marseille",
+    "departure_date": "21/06/2025",
+    "arrival_port": "Lyon",
+    "arrival_date": "06/07/2025"
+  },
+  {
+    "id": 30,
+    "trip_id": 4,
+    "name": "Stage 5",
+    "description": "",
+    "departure_port": "Lyon",
+    "departure_date": "05/07/2025",
+    "arrival_port": "Saint Jean de Losne",
+    "arrival_date": "15/07/2025"
+  },
+  {
+    "id": 31,
+    "trip_id": 4,
+    "name": "Ship transport",
+    "description": "This stage will be done by car and can not be joined",
+    "departure_port": "Saint Jean de Losne",
+    "departure_date": "15/07/2025",
+    "arrival_port": "Migennes",
+    "arrival_date": "17/07/2025"
+  },
+  {
+    "id": 32,
+    "trip_id": 4,
+    "name": "Stage 6",
+    "description": "",
+    "departure_port": "Migennes",
+    "departure_date": "17/07/2025",
+    "arrival_port": "Paris",
+    "arrival_date": "27/07/2025"
+  },
+  {
+    "id": 33,
+    "trip_id": 4,
+    "name": "Stage 7",
+    "description": "",
+    "departure_port": "Paris",
+    "departure_date": "26/07/2025",
+    "arrival_port": "Paris",
+    "arrival_date": "03/08/2025"
+  },
+  {
+    "id": 34,
+    "trip_id": 4,
+    "name": "Stage 8",
+    "description": "",
+    "departure_port": "Paris",
+    "departure_date": "02/08/2025",
+    "arrival_port": "Le Havre",
+    "arrival_date": "17/08/2025"
+  },
+  {
+    "id": 35,
+    "trip_id": 4,
+    "name": "Stage 9",
+    "description": "",
+    "departure_port": "Le Havre",
+    "departure_date": "16/08/2025",
+    "arrival_port": "London",
+    "arrival_date": "31/08/2025"
+  },
+  {
+    "id": 36,
+    "trip_id": 4,
+    "name": "Stage 9",
+    "description": "",
+    "departure_port": "Le Havre",
+    "departure_date": "16/08/2025",
+    "arrival_port": "London",
+    "arrival_date": "31/08/2025"
+  }
+]

@@ -5,6 +5,7 @@ import trips from "@/lib/data/map/data/trips.json";
 import trip1Stages from "@/lib/data/map/data/stages/trip_1.json";
 import trip2Stages from "@/lib/data/map/data/stages/trip_2.json";
 import trip3Stages from "@/lib/data/map/data/stages/trip_3.json";
+import trip4Stages from "@/lib/data/map/data/stages/trip_4.json";
 
 import stage1Waypoints from "@/lib/data/map/data/waypoints/stage_1.json";
 import stage2Waypoints from "@/lib/data/map/data/waypoints/stage_2.json";
@@ -31,6 +32,17 @@ import stage22Waypoints from "@/lib/data/map/data/waypoints/stage_22.json";
 import stage23Waypoints from "@/lib/data/map/data/waypoints/stage_23.json";
 import stage24Waypoints from "@/lib/data/map/data/waypoints/stage_24.json";
 import stage25Waypoints from "@/lib/data/map/data/waypoints/stage_25.json";
+import stage26Waypoints from "@/lib/data/map/data/waypoints/stage_26.json";
+import stage27Waypoints from "@/lib/data/map/data/waypoints/stage_27.json";
+import stage28Waypoints from "@/lib/data/map/data/waypoints/stage_28.json";
+import stage29Waypoints from "@/lib/data/map/data/waypoints/stage_29.json";
+import stage30Waypoints from "@/lib/data/map/data/waypoints/stage_30.json";
+import stage31Waypoints from "@/lib/data/map/data/waypoints/stage_31.json";
+import stage32Waypoints from "@/lib/data/map/data/waypoints/stage_32.json";
+import stage33Waypoints from "@/lib/data/map/data/waypoints/stage_33.json";
+import stage34Waypoints from "@/lib/data/map/data/waypoints/stage_34.json";
+import stage35Waypoints from "@/lib/data/map/data/waypoints/stage_35.json";
+import stage36Waypoints from "@/lib/data/map/data/waypoints/stage_36.json";
 
 export const tripsData: Trip[] = trips;
 
@@ -38,6 +50,7 @@ export const stagesByTripId: Record<number, Stage[]> = {
   1: trip1Stages,
   2: trip2Stages,
   3: trip3Stages,
+  4: trip4Stages,
 };
 
 export const waypointsByStageId: Record<number, Waypoint[]> = {
@@ -66,4 +79,15 @@ export const waypointsByStageId: Record<number, Waypoint[]> = {
   23: stage23Waypoints,
   24: stage24Waypoints,
   25: stage25Waypoints,
+  26: stage26Waypoints,
+  27: stage27Waypoints,
+  28: stage28Waypoints,
+  29: stage29Waypoints,
+  30: stage30Waypoints,
+  31: stage31Waypoints,
+  32: stage32Waypoints,
+  33: stage33Waypoints,
+  34: stage34Waypoints,
+  35: stage35Waypoints,
+  36: stage36Waypoints,
 };
