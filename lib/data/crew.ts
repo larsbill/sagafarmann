@@ -57,11 +57,11 @@ export const crewRoles: CrewInfo[] = [
   {
     name: "Stage Responsible - Home based",
     description: "A home-based Stage Responsible (SR-H) is needed when a voyage is in progress abroad. The SR-H will coordinate actions relevant to do in Norway from a home office - all in close dialogue with the Stage Responsible based on the ship (SR-S)",
-    downloadUrl: "/assets/files/pdf/Stage Responsible HOME.pdf",
+    downloadUrl: "/assets/files/pdf/Stage Responsible - HOME.pdf",
   },
   {
     name: "Stage Responsible - On board",
     description: "Stage Responsible - on board the Ship (SR-S) has the overall responsibility for all activities with the ship and crew, when the ship is docked (when sailing the Captain has this responsibility).",
-    downloadUrl: "/assets/files/pdf/Stage Responsible ON BOARD.pdf",
+    downloadUrl: "/assets/files/pdf/Stage Responsible - ON BOARD.pdf",
   },
 ];
