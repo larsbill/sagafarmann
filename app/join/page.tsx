@@ -9,8 +9,8 @@ export default function Join() {
       <PageHeader
         videoSrc="/assets/videos/landing_page_video.webm"
         videoType="video/webm"
-        title="Join Saga Farmann"
-        description="Become a part of our adventurous voyage"
+        title="SAGA MIDGARD 2026"
+        description="Application for this years voyage is now open. Join us for an unforgettable adventure sailing the Viking way from England to Sweden visiting Belgium, Holland, Germany and Denmark."
         heightVh={90}
       />
 
@@ -22,19 +22,21 @@ export default function Join() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
-              Joining opens when the 2026 trip is ready
+              Apply to join the 2026 Crew NOW!
             </h1>
 
             <p className="mt-4 text-base sm:text-lg text-muted-foreground">
-              Want to be part of the adventure? Registration will open soon, giving you the chance to register your interest and apply for a spot on this years crew.
+              This years voyage consists of 11 stages that one can apply for. Each stage is either one or two weeks long and you can apply for as many stages as you like. The application deadline is the 1st of March 2026.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
-                href="/"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe9YHbZusauCtWN-44nS3z2mxS73vhjuJBBVONCfrM51xz4-g/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
               >
-                Back to home
+                APPLY HERE
               </Link>
 
               <a
