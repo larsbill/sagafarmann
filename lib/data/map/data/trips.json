@@ -31,5 +31,16 @@
     "departure_date": "10/05/2025",
     "arrival_port": "London",
     "arrival_date": "31/08/2025"
+  },
+  {
+    "id": 4,
+    "name": "Saga Lundenwic 2026",
+    "description": "The voyage continues and Saga Farmann leaves the Mediteranien and sets sail for England.",
+    "year": 2026,
+    "color": "#FF9800",
+    "departure_port": "Rome",
+    "departure_date": "10/05/2025",
+    "arrival_port": "London",
+    "arrival_date": "31/08/2025"
   }
 ]
