@@ -3,110 +3,110 @@
     "id": 26,
     "trip_id": 4,
     "name": "Stage 1",
-    "description": "",
-    "departure_port": "Rome",
-    "departure_date": "15/05/2025",
-    "arrival_port": "Genoa",
-    "arrival_date": "31/05/2025"
+    "description": "Sailing stage crossing the English channel. 230 nm in 8 days.",
+    "departure_port": "Gillingham",
+    "departure_date": "16/05/2026",
+    "arrival_port": "Brussels",
+    "arrival_date": "24/05/2026"
   },
   {
     "id": 27,
     "trip_id": 4,
     "name": "Stage 2",
-    "description": "",
-    "departure_port": "Genoa",
-    "departure_date": "31/05/2025",
-    "arrival_port": "Nice",
-    "arrival_date": "15/06/2025"
+    "description": "Motoring through the canals of Belgium and the Netherlands. 180 nm in 8 days.",
+    "departure_port": "Brussels",
+    "departure_date": "23/05/2026",
+    "arrival_port": "Amsterdam",
+    "arrival_date": "31/05/2026"
   },
   {
     "id": 28,
     "trip_id": 4,
     "name": "Stage 3",
-    "description": "",
-    "departure_port": "Nice",
-    "departure_date": "14/06/2025",
-    "arrival_port": "Marseille",
-    "arrival_date": "22/06/2025"
+    "description": "One week of city exploration and cultural activities in Amsterdam. Welcome guests on board. Daytrips motoring in the surrounding area. ",
+    "departure_port": "Amsterdam",
+    "departure_date": "30/05/2026",
+    "arrival_port": "Amsterdam",
+    "arrival_date": "07/06/2026"
   },
   {
     "id": 29,
     "trip_id": 4,
     "name": "Stage 4",
-    "description": "",
-    "departure_port": "Marseille",
-    "departure_date": "21/06/2025",
-    "arrival_port": "Lyon",
-    "arrival_date": "06/07/2025"
+    "description": "150+ nm sailing and motoring stage from Amsterdam to Eems. Passing the Frisian islands. 15 days.",
+    "departure_port": "Amsterdam",
+    "departure_date": "06/06/2026",
+    "arrival_port": "Eems",
+    "arrival_date": "21/06/2026"
   },
   {
     "id": 30,
     "trip_id": 4,
     "name": "Stage 5",
-    "description": "",
-    "departure_port": "Lyon",
-    "departure_date": "05/07/2025",
-    "arrival_port": "Saint Jean de Losne",
-    "arrival_date": "15/07/2025"
+    "description": "Sailing and motoring stage providing a mix of nice sailing in protected waters and open sea sailing crossing the Kielerkanal to Kiel. 150+ nm in 8 days.",
+    "departure_port": "Eems",
+    "departure_date": "20/06/2026",
+    "arrival_port": "Kiel",
+    "arrival_date": "28/06/2026"
   },
   {
     "id": 31,
     "trip_id": 4,
-    "name": "Ship transport",
-    "description": "This stage will be done by car and can not be joined",
-    "departure_port": "Saint Jean de Losne",
-    "departure_date": "15/07/2025",
-    "arrival_port": "Migennes",
-    "arrival_date": "17/07/2025"
+    "name": "Stage 6",
+    "description": "Pure sailing stage crossing the Kattegat sea area to Aarhus. 150 nm in 15 days. Get into the vibe of Viking voyages!",
+    "departure_port": "Kiel",
+    "departure_date": "27/06/2026",
+    "arrival_port": "Aarhus",
+    "arrival_date": "12/07/2026"
   },
   {
     "id": 32,
     "trip_id": 4,
-    "name": "Stage 6",
-    "description": "",
-    "departure_port": "Migennes",
-    "departure_date": "17/07/2025",
-    "arrival_port": "Paris",
-    "arrival_date": "27/07/2025"
+    "name": "Stage 7",
+    "description": "Sailing stage to the significant viking site of Roskilde. 120 nm in 8 days.",
+    "departure_port": "Aarhus",
+    "departure_date": "11/07/2026",
+    "arrival_port": "Roskilde",
+    "arrival_date": "19/07/2026"
   },
   {
     "id": 33,
     "trip_id": 4,
-    "name": "Stage 7",
-    "description": "",
-    "departure_port": "Paris",
-    "departure_date": "26/07/2025",
-    "arrival_port": "Paris",
-    "arrival_date": "03/08/2025"
+    "name": "Stage 8",
+    "description": "One week in Roskilde with cultural activities, sightseeing and daytrips in the surrounding area. Invide guests on board.",
+    "departure_port": "Roskilde",
+    "departure_date": "18/07/2026",
+    "arrival_port": "Roskilde",
+    "arrival_date": "26/07/2026"
   },
   {
     "id": 34,
     "trip_id": 4,
-    "name": "Stage 8",
-    "description": "",
-    "departure_port": "Paris",
-    "departure_date": "02/08/2025",
-    "arrival_port": "Le Havre",
-    "arrival_date": "17/08/2025"
+    "name": "Stage 9",
+    "description": "Open sea sailing stage crossing the Kattegat to Aalborg. 150 nm in 8 days.",
+    "departure_port": "Roskilde",
+    "departure_date": "25/07/2026",
+    "arrival_port": "Aalborg",
+    "arrival_date": "02/08/2026"
   },
   {
     "id": 35,
     "trip_id": 4,
-    "name": "Stage 9",
-    "description": "",
-    "departure_port": "Le Havre",
-    "departure_date": "16/08/2025",
-    "arrival_port": "London",
-    "arrival_date": "31/08/2025"
+    "name": "Stage 10",
+    "description": "Sailing stage with a stop in Isle of Hl´€r during the crossing. 150 nm in 8 days.",
+    "departure_port": "Aalborg",
+    "departure_date": "01/08/2026",
+    "arrival_port": "Gothenburg",
+    "arrival_date": "09/08/2026"
   },
   {
     "id": 36,
     "trip_id": 4,
-    "name": "Stage 9",
-    "description": "",
-    "departure_port": "Le Havre",
-    "departure_date": "16/08/2025",
-    "arrival_port": "London",
-    "arrival_date": "31/08/2025"
+    "name": "Stage 11",
+    "description": "Sailing stage from Gothenburg to Karlstad, motoring parts of the way up the Göta älv and Vänern lake. 160+ nm in 15 days.",
+    "departure_port": "Gothenburg",
+    "departure_date": "08/08/2026",
+    "arrival_port": "Karlstad",
+    "arrival_date": "23/08/2026"
   }
 ]
