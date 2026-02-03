@@ -16,7 +16,6 @@ export default function Sponsors() {
       />
 
       <PageBody>
-         {/* Social section */}
         <section className="w-full px-4 py-16 sm:py-5 bg-background">
           <div className="mx-auto w-full max-w-6xl">
             <div className="mx-auto text-center mb-10 sm:mb-16">
