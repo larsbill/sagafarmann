@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
-import { SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
+import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from "react-icons/si";
 import { ReactNode } from "react";
 
 interface MenuItem {
@@ -65,7 +65,8 @@ export default function Footer({
   smallLinks = [
     { text: "Facebook", icon: <SiFacebook />, url: "https://www.facebook.com/VikingskipetSagaFarmann" },
     { text: "Instagram", icon: <SiInstagram />, url: "https://www.instagram.com/original_vikings_of_norway/" },
-    { text: "YouTube", icon: <SiYoutube />, url: "https://www.youtube.com/channel/UCaPUAvRBw0i5ET79TMh2_MQ" }
+    { text: "YouTube", icon: <SiYoutube />, url: "https://www.youtube.com/channel/UCaPUAvRBw0i5ET79TMh2_MQ" },
+    { text: "LinkedIn", icon: <SiLinkedin />, url: "https://www.linkedin.com/company/oseberg-vikingarv/" }
   ]
 }: FooterProps) {
   return (

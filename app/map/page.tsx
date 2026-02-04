@@ -5,6 +5,8 @@ import PageHeader from "@/components/common/page/page-header";
 import { getStages, getTrips, getWaypoints } from "@/lib/data/map/map";
 import { getLive } from "@/lib/server/map";
 import { Suspense } from "react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Map() {
 
@@ -24,6 +26,27 @@ export default function Map() {
         heightVh={90}
       />
       <PageBody fullWidth>
+        <section className="w-full px-4 py-16 sm:py-5 bg-background">
+          <div className="mx-auto w-full max-w-6xl">
+            <div className="mx-auto text-center mb-10 sm:mb-16">
+              <h2 className="text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 sm:mb-6">
+                SAGA MIDGARD 2026 <br /> THE VOYAGE CONTINUES
+              </h2>
+              <p className="text-base sm:text-lg md:text-2xl text-muted-foreground mb-0 leading-relaxed">
+                This summer, Saga Farmann embarks on yet another exciting voyage, this time from England to Sweden. The crew will be retracing historic Viking routes and visiting key ports in Benelux, Germany, Denmark, and Sweden. Study this years route on the map below and make sure to visit us along the way. We look forward to welcoming you on board for an unforgettable experience!
+              </p>
+                <p>
+                  <div className="flex w-full flex-row gap-3 sm:gap-4 mb-6 sm:mb-12 py-10 button-container justify-center">
+                    <Button asChild className="h-10 sm:w-auto sm:h-16 sm:px-10 sm:text-lg">
+                      <Link href="https://live.sagafarmann.com" target="_blank" rel="noopener noreferrer">
+                        Open full live map
+                      </Link>
+                    </Button>
+                  </div>
+                </p>
+            </div>
+          </div>
+        </section>
         <section className="h-[90vh] w-full flex flex-row gap-4">
           <div className="w-lg h-full flex-col justify-center bg-secondary p-4 rounded-md hidden md:flex">
             <h1 className="text-2xl text-center">The route for this year will soon be published.</h1>
