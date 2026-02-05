@@ -64,8 +64,9 @@ export default function Header() {
           <div className="absolute inset-0 hidden md:flex items-center justify-center pointer-events-none">
             <nav className="flex items-center gap-6 text-sm font-medium text-foreground/90 pointer-events-auto">
               <Link href="/sponsors" className="hover:text-foreground">Sponsors</Link>
-              <Link href="/about" className="hover:text-foreground">About Us</Link>
+              <Link href="/map" className="hover:text-foreground">Saga Midgard</Link>
               <Link href="/info" className="hover:text-foreground">Info</Link>
+              <Link href="/about" className="hover:text-foreground">About Us</Link>
             </nav>
           </div>
 

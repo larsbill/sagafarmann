@@ -106,9 +106,10 @@ export default function Header() {
           </div>
 
           <nav className="absolute inset-0 hidden md:flex items-center justify-center gap-6 text-sm font-medium text-foreground/90">
+            <Link href="/map" className="hover:text-foreground">Saga Midgard</Link>
+            <Link href="/crew" className="hover:text-foreground">Crew Info</Link>
             <Link href="/sponsors" className="hover:text-foreground">Sponsors</Link>
             <Link href="/about" className="hover:text-foreground">About Us</Link>
-            <Link href="/crew" className="hover:text-foreground">Crew Info</Link>
           </nav>
 
           <div className="flex items-center gap-2 ml-auto relative z-10">
