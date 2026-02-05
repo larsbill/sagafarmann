@@ -2,7 +2,7 @@ import { CrewInfo } from "@/types/crew";
 
 export const crewInformation: CrewInfo[] = [
   {
-    name: "Saga Lundenwic 2026 - General information",
+    name: "Saga Midgard 2026 - General information",
     description: "Background information about the project, voyage details, what to expect, how to apply and more.",
     downloadUrl: "/assets/files/pdf/Saga Midgard 2026 - Follow the Vikings.pdf",
   },

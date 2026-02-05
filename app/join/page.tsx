@@ -26,7 +26,7 @@ export default function Join() {
             </h1>
 
             <p className="mt-4 text-base sm:text-lg text-muted-foreground">
-              This years voyage consists of 11 stages that one can apply for. Each stage is either one or two weeks long and you can apply for as many stages as you like. The application deadline is the 1st of March 2026.
+              This years voyage consists of 11 stages that one can apply for. Each stage is either one or two weeks long and you can apply for as many stages as you like. The application deadline is the 2st of March 2026.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
