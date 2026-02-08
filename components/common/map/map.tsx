@@ -16,6 +16,7 @@ type MapOlProps = {
   live: Promise<Live | null>;
   showAllRoutes?: boolean;
   interactive?: boolean;
+  selectedStageId?: number | null;
 };
 
 export default function MapOl({
@@ -25,6 +26,7 @@ export default function MapOl({
   live,
   showAllRoutes = false,
   interactive = false,
+  selectedStageId = null,
 }: MapOlProps) {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const mapInstance = useRef<Map | null>(null);
@@ -98,16 +100,19 @@ export default function MapOl({
         [Infinity, Infinity, -Infinity, -Infinity] as number[]
       );
 
-    const mergeExtents = (
-      a: number[],
-      b: number[]
-    ): number[] => {
+    const mergeExtents = (a: number[], b: number[]): number[] => {
       return [
         Math.min(a[0], b[0]),
         Math.min(a[1], b[1]),
         Math.max(a[2], b[2]),
         Math.max(a[3], b[3]),
       ];
+    };
+
+    const getStageCoords = (stageId: number) => {
+      return waypoints
+        .filter((wp) => wp.stage_id === stageId)
+        .map((wp) => fromLonLat([wp.longitude, wp.latitude]));
     };
 
     const getTripCoords = (tripId: number) => {
@@ -122,6 +127,30 @@ export default function MapOl({
 
     removeWaypoints();
 
+    // If a stage is selected, only render that stage and zoom to it
+    if (selectedStageId != null) {
+      const stage = stages.find((s) => s.id === selectedStageId);
+      if (!stage) return;
+
+      const coords = getStageCoords(stage.id);
+      if (!coords.length) return;
+
+      const trip = trips.find((t) => t.id === stage.trip_id);
+      const color = trip?.color ?? "#1e90ff";
+
+      addWaypoints(coords, color);
+
+      const ext = toExtent(coords);
+      map.current.getView().fit(ext, {
+        padding: [50, 50, 50, 50],
+        duration: 500,
+        maxZoom: 16,
+      });
+
+      return;
+    }
+
+    // Default behavior (your existing logic)
     let globalExtent: number[] | null = null;
 
     if (showAllRoutes) {
@@ -170,6 +199,7 @@ export default function MapOl({
     addWaypoints,
     removeWaypoints,
     showAllRoutes,
+    selectedStageId,
   ]);
 
   return (
