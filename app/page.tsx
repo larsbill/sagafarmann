@@ -34,6 +34,25 @@ export default function Home() {
       />
 
       <main className="relative z-10 w-full bg-card">
+        <section className="w-full px-4 py-16 sm:py-5 bg-background">
+          <div className="mx-auto w-full max-w-6xl">
+            <div className="mx-auto text-center sm:my-16">
+              <h2 className="text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 sm:mb-6">
+                THE VOYAGE CONTINUES
+              </h2>
+              <p className="text-base sm:text-lg md:text-2xl text-muted-foreground mb-0 leading-relaxed">
+                This years voyage has gotten the name Saga Midgard 2026, and will see Saga Farmann sail from England to Sweden. Have you allways dreamt of sailing on a Viking ship? This is your chance to experience it. Join us now and apply for a spot on the crew.
+              </p>
+              <div className="flex w-full flex-row gap-3 sm:gap-4 pt-10 button-container justify-center">
+                <Button asChild className="h-10 sm:w-auto sm:h-16 sm:px-10 sm:text-lg">
+                  <Link href="/join" target="_blank" rel="noopener noreferrer">
+                    Join Now!
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
         {/* Live map section */}
         <section className="w-full px-4 py-16 sm:py-24 lg:py-40">
           <div className="mx-auto w-full max-w-6xl">

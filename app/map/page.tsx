@@ -12,6 +12,12 @@ export default function Map() {
   const waypoints = getWaypoints();
   const live = getLive();
 
+  const currentStages = stages.filter((s) => {
+    const currentTrip = trips.at(-1);
+
+    return s.trip_id === currentTrip?.id;
+  });
+
   return (
     <div className="relative min-h-screen bg-background font-sans">
       <PageHeader
@@ -26,7 +32,7 @@ export default function Map() {
           <div className="mx-auto w-full max-w-6xl">
             <div className="mx-auto text-center mb-10 sm:mb-16">
               <h2 className="text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 sm:mb-6">
-                SAGA MIDGARD 2026 <br /> THE VOYAGE CONTINUES
+                THE VOYAGE CONTINUES
               </h2>
               <p className="text-base sm:text-lg md:text-2xl text-muted-foreground mb-0 leading-relaxed">
                 This summer, Saga Farmann embarks on yet another exciting voyage, this time from England to Sweden. The crew will be retracing historic Viking routes and visiting key ports in Benelux, Germany, Denmark, and Sweden. Study this years route on the map below and make sure to visit us along the way. We look forward to welcoming you on board for an unforgettable experience!
@@ -54,6 +60,16 @@ export default function Map() {
             />
           </div>
         </section>
+       {/*  <section>
+          {currentStages.map((stage) => (
+            <div>
+              <p>{stage.name}</p>
+              <p>{stage.arrival_port}</p>
+              <p>{stage.departure_port}</p>
+              <p>{stage.description}</p>
+            </div>
+          ))}
+        </section> */}
       </PageBody>
     </div>
   );

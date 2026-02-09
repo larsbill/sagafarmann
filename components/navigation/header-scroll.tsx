@@ -161,6 +161,22 @@ export default function Header() {
                   <nav className="grid gap-1 text-sm font-medium">
                     <SheetClose asChild>
                       <Link
+                        href="/map"
+                        className="rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground"
+                      >
+                        Saga Midgard
+                      </Link>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <Link
+                        href="/crew"
+                        className="rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground"
+                      >
+                        Crew Info
+                      </Link>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <Link
                         href="/sponsors"
                         className="rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground"
                       >
@@ -172,15 +188,7 @@ export default function Header() {
                         href="/about"
                         className="rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground"
                       >
-                        About Us
-                      </Link>
-                    </SheetClose>
-                    <SheetClose asChild>
-                      <Link
-                        href="/crew"
-                        className="rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground"
-                      >
-                        Crew Info
+                        About us
                       </Link>
                     </SheetClose>
 
@@ -189,7 +197,7 @@ export default function Header() {
                         href="/join"
                         className="my-2 inline-flex items-center justify-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
                       >
-                        Join Us
+                        Join Us!
                       </Link>
                     </SheetClose>
                   </nav>
