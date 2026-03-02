@@ -41,6 +41,7 @@ export default function Footer({
         { text: "Sponsors", url: "/sponsors" },
         { text: "About Us", url: "/about" },
         { text: "Crew Info", url: "/crew" },
+        { text: "Join", url: "/join" },
         { text: "Donate", url: "https://www.paypal.com/donate/?hosted_button_id=2EAXYY2GZBJMY", external: true },
       ]
     },
