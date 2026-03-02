@@ -22,21 +22,21 @@ export default function Join() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
-              Apply to join the 2026 Crew NOW!
+              Want to join the Saga Midgaard 2026 voyage?
             </h1>
 
             <p className="mt-4 text-base sm:text-lg text-muted-foreground">
-              This years voyage consists of 11 stages that one can apply for. Each stage is either one or two weeks long and you can apply for as many stages as you like. The application deadline is the 2st of March 2026.
+              The application deadline for this years voyage ended on the 2nd of March 2026. But if you have any questions regarding Saga Farmann, this years voyage or anything else related to the Saga Farmann adventure, please contact us. We are always happy to answer questions and provide more information about the voyage and how to join.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
-                href="https://docs.google.com/forms/d/e/1FAIpQLSe9YHbZusauCtWN-44nS3z2mxS73vhjuJBBVONCfrM51xz4-g/viewform"
+                href="mailto:contact@sagafarmann.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
               >
-                APPLY HERE
+                Contact us
               </Link>
 
               <a

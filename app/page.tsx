@@ -2,7 +2,7 @@ import AutoMarquee from "@/components/common/auto-marquee";
 import PageHeader from "@/components/common/page/page-header";
 import SponsorMarquee from "@/components/sponsors/sponsor-marquee";
 import { sponsors } from "@/lib/data/sponsors";
-import { Suspense } from "react";
+import { ReactNode, Suspense } from "react";
 import MapOl from "@/components/common/map/map";
 import { getLive } from "@/lib/server/map";
 import MapLoading from "@/components/common/map/map-loading";
@@ -13,6 +13,14 @@ import SponsorSpotlight from "@/components/sponsors/sponsor-spotlight";
 import { socialMediaList } from "@/lib/data/socialmedia";
 import { SocialMediaCard } from "@/components/common/sosial-media";
 import { getStages, getTrips, getWaypoints } from "@/lib/data/map/map";
+import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from "react-icons/si";
+
+
+type SocialMediaLink = {
+  text: string;
+  icon: ReactNode;
+  url: string;
+};
 
 export default function Home() {
   const trips = getTrips();
@@ -21,6 +29,13 @@ export default function Home() {
   const live = getLive();
 
   const shuffledSponsors = shuffleArray(sponsors);
+
+  const smallLinks: SocialMediaLink[] = [
+    { text: "Facebook", icon: <SiFacebook />, url: "https://www.facebook.com/VikingskipetSagaFarmann" },
+    { text: "Instagram", icon: <SiInstagram />, url: "https://www.instagram.com/original_vikings_of_norway/" },
+    { text: "YouTube", icon: <SiYoutube />, url: "https://www.youtube.com/channel/UCaPUAvRBw0i5ET79TMh2_MQ" },
+    { text: "LinkedIn", icon: <SiLinkedin />, url: "https://www.linkedin.com/company/oseberg-vikingarv/" }
+  ]
 
   return (
     <div className="relative min-h-screen bg-background font-sans">
@@ -41,12 +56,12 @@ export default function Home() {
                 THE VOYAGE CONTINUES
               </h2>
               <p className="text-base sm:text-lg md:text-2xl text-muted-foreground mb-0 leading-relaxed">
-                This years voyage has gotten the name Saga Midgard 2026, and will see Saga Farmann sail from England to Sweden. Have you allways dreamt of sailing on a Viking ship? This is your chance to experience it. Join us now and apply for a spot on the crew.
+                This years voyage has gotten the name Saga Midgard 2026, and will see Saga Farmann sail from England to Sweden. Are you one of the brave ones that applied for this years crew and have some questions about the application process? Or are you just interested in learning more about the voyage and how to join? Don't hesitate to contact us for more information!
               </p>
               <div className="flex w-full flex-row gap-3 sm:gap-4 pt-10 button-container justify-center">
                 <Button asChild className="h-10 sm:w-auto sm:h-16 sm:px-10 sm:text-lg">
-                  <Link href="/join" target="_blank" rel="noopener noreferrer">
-                    Join Now!
+                  <Link href="/join">
+                    Contact us
                   </Link>
                 </Button>
               </div>
@@ -98,10 +113,21 @@ export default function Home() {
                 EXPERIENCE THE ADVENTURE
               </h2>
               <p className="text-base sm:text-lg md:text-2xl text-muted-foreground mb-0 leading-relaxed">
-                Join the voyage, follow us on social media and get inspired by the journey and the crew behind it.
+                Follow us on social media and get inspired by the journey and the crew behind it.
               </p>
             </div>
-
+            <div className="flex justify-center items-center gap-4 mb-8">
+              {smallLinks.map((link) => (
+                <Link
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative inline-flex text-4xl text-foreground/70 transition-colors hover:text-foreground"
+                >
+                  {link.icon}
+                </Link>
+              ))}
+            </div>
             <div className="flex w-full justify-center items-center">
               <div className="grid w-full grid-cols-1 gap-4 sm:gap-6 md:hidden">
                 {socialMediaList
