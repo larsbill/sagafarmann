@@ -8,6 +8,7 @@ import { XYZ } from "ol/source";
 import { fromLonLat } from "ol/proj";
 import { defaults as defaultInteractions } from "ol/interaction";
 import { Live, Stage, Trip, Waypoint } from "@/types/map";
+import MapAttribution from "@/components/common/map/map-attribution";
 
 type MapOlProps = {
   trips: Trip[];
@@ -53,10 +54,10 @@ export default function MapOl({
     const layer = new TileLayer({
       source: new XYZ({
         urls: [
-          "https://a.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
-          "https://b.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
-          "https://c.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
-          "https://d.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+          "https://a.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=cb1_4auk_1_ab5aebd2fbbf3ca245e67f42",
+          "https://b.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=cb1_4auk_1_ab5aebd2fbbf3ca245e67f42",
+          "https://c.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=cb1_4auk_1_ab5aebd2fbbf3ca245e67f42",
+          "https://d.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=cb1_4auk_1_ab5aebd2fbbf3ca245e67f42",
         ],
         attributions:
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -210,6 +211,7 @@ export default function MapOl({
         </div>
       )}
       <div ref={mapRef} className="w-full h-full" />
+      {!isLoading && <MapAttribution />}
     </div>
   );
 }
