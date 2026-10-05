@@ -143,7 +143,7 @@ export default function MapOl({
 
       const ext = toExtent(coords);
       map.current.getView().fit(ext, {
-        padding: [50, 50, 50, 50],
+        padding: [50, 50, 50, 450],
         duration: 500,
         maxZoom: 16,
       });
@@ -189,7 +189,7 @@ export default function MapOl({
     if (!globalExtent) return;
 
     map.current.getView().fit(globalExtent, {
-      padding: [25, 25, 25, 25],
+      padding: [25, 25, 25, interactive ? 450 : 25],
       duration: 500,
     });
   }, [

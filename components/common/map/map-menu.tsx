@@ -141,12 +141,9 @@ export default function MapMenu({
       ) : (
         <>
           <div>
-            <h2 className="text-3xl font-semibold leading-tight text-center">
+            <h2 className="text-3xl font-semibold leading-tight text-center pb-4">
               {activeTrip?.name ?? `Trip ${activeTrip?.year ?? ""}`}
             </h2>
-            <p className="mt-1 text-muted-foreground font-bold text-center">
-              {activeTrip?.year ?? "-"}
-            </p>
 
             <div className="mt-2 flex flex-row justify-center items-center gap-2 text-sm px-2">
               <span className="font-bold text-right">{activeTrip?.departure_port ?? "-"}</span>
